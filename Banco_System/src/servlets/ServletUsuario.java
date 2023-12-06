@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import dao.IDaoUsuario;
+import daoImplementado.DaoUsuarioImplementado;
+import entidades.Usuario;
 
 /**
  * Servlet implementation class ServletUsuario
@@ -32,7 +37,12 @@ public class ServletUsuario extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		if("btnListar" != null) {
 			
-			System.out.println("llego");
+			ArrayList<Usuario> listado = new ArrayList<Usuario>();
+			IDaoUsuario reg = new DaoUsuarioImplementado();
+			
+			listado = reg.leerTodos();
+			
+			request.setAttribute("listadoUsuarios", listado);
 			
 			
 			RequestDispatcher rd = request.getRequestDispatcher("/listarUsuarios.jsp");
