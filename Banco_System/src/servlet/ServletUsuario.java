@@ -1,4 +1,4 @@
-package servlets;
+package servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import dao.IDaoUsuario;
 import daoImplementado.DaoUsuarioImplementado;
 import entidades.Usuario;
+import negocio.INegocioUsuario;
+import negocioImplementado.NegocioUsuarioImplementado;
 
 /**
  * Servlet implementation class ServletUsuario
@@ -38,7 +40,7 @@ public class ServletUsuario extends HttpServlet {
 		if("btnListar" != null) {
 			
 			ArrayList<Usuario> listado = new ArrayList<Usuario>();
-			IDaoUsuario reg = new DaoUsuarioImplementado();
+			INegocioUsuario reg = new NegocioUsuarioImplementado();
 			
 			listado = reg.leerTodos();
 			
