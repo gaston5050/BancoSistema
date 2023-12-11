@@ -13,8 +13,46 @@ public class DaoUsuarioImplementado implements IDaoUsuario {
 
 	
 	private static final String LeerTodos = "select idUsuario, idTipoUsuario, Clave, nroCliente, estado from usuarios";	
+	private static final String InsertarUsuario = "insert into usuarios (idusuario, clave, idtipoUsuario, estado, nroCliente) values (?,?, ?, ?,?)";
 	
-	
+	@Override
+	public boolean insertarUsuario(Usuario usuario) {
+		
+		PreparedStatement statement;
+		Connection conexion = Conexion.getConnection().getSQLConexion();
+		boolean estado = false;		
+		
+		System.out.println("prvio insert");
+				
+		try {
+			
+			statement = conexion.prepareStatement(InsertarUsuario);
+			statement.setString(1, usuario.getIdUsuario());
+			statement.setString(2, usuario.getPass());
+			statement.setInt(3, usuario.getTipoUsuario().getIdTipoUsuario());
+			statement.setBoolean(4, true);
+			statement.setString(5, null);
+			
+			if(statement.executeUpdate() > 0) {
+				System.out.println("insert Dao Usuario Impl - ok");
+			//	conexion.commit();
+				estado = true;
+			
+			}
+			
+		}
+		catch (Exception e) {
+			
+			e.printStackTrace();
+			
+		}
+		
+		
+		return estado;
+	}
+
+
+
 	
 	
 	@Override

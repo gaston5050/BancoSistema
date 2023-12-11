@@ -13,19 +13,79 @@
 
 	<nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
+  
+  
+  
+  
     <a class="navbar-brand" href="#">Banco Sistema</a>
+    
+    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
       <li class="nav-item">
-			<form action = "ServletUsuario" method = "get"  >
-				<input type = "submit" name ="btnListar" value = "Listar Usuarios" class="nav-link text-pink-500">
-			</form>
+      
+      				
+      				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+					      <span class="navbar-toggler-icon"></span>
+					    </button>
+					    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+					      <ul class="navbar-nav">
+					        <li class="nav-item dropdown">
+					          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					            Usuarios
+					          </a>
+					          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+							          	
+			      			 <li>
+			      	
+						  		<a  class="dropdown-item" href = "ServletUsuario?Param=ListarUsuarios"> Listar Usuarios</a>
+						    </li>
+						    <li>
+						    		<a  class="dropdown-item" href = "ServletUsuario?Param=AltaUsuario"> Alta Usuario</a>
+							
+								
+							</li>
+					    
+					          </ul>
+					        </li>
+					      </ul>
+					    </div>
+
+				
+      
 	   </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+         
+         			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+					      <span class="navbar-toggler-icon"></span>
+					    </button>
+					    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+					      <ul class="navbar-nav">
+					        <li class="nav-item dropdown">
+					          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					            Clientes
+					          </a>
+					          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+							          	
+			      			 <li>
+			      	
+						  		<a  class="dropdown-item" href = "ServletUsuario?Param=ListarUsuarios"> Listar Usuarios</a>
+						    </li>
+						    <li>
+						    		<a  class="dropdown-item" href = "ServletUsuario?Param=AltaUsuario"> Alta Usuario</a>
+							
+								
+							</li>
+					      
+					          </ul>
+					        </li>
+					      </ul>
+					    </div>
+         
+         
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Features</a>

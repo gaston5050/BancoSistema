@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"  pageEncoding="ISO-8859-1"%>
+<%@ page import = "entidades.Usuario" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,7 +17,7 @@
   	<div class="container p-4">
 				
 		
-		<form class="col-md-6 offset-md-3  ">
+		<form method= "post" action="ServletUsuario" class="col-md-6 offset-md-3  ">
   			
   				
   			<div class="col-auto">
@@ -58,6 +59,12 @@
     				  <input type="password" class="form-control" name="txtPassword2" placeholder="Reingrese contraseña">
    					  </div>
  				 </div>
+ 				 
+ 				 <div class="form-check form-switch">
+					  <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+					  <label class="form-check-label" for="flexSwitchCheckDefault">Administrador</label>
+					 
+				 </div>
  				 
    				<div class="d-grid gap-2 d-md-flex justify-content-md-end">
   					

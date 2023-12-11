@@ -3,6 +3,7 @@ package servlet;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -37,7 +38,10 @@ public class ServletUsuario extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		if("btnListar" != null) {
+		
+		if(request.getParameter("Param")!= null) {
+			
+			if (request.getParameter("Param").equals("ListarUsuarios")){
 			
 			ArrayList<Usuario> listado = new ArrayList<Usuario>();
 			INegocioUsuario reg = new NegocioUsuarioImplementado();
@@ -52,17 +56,66 @@ public class ServletUsuario extends HttpServlet {
 		}
 		
 		
+			
+			if (request.getParameter("Param").equals("AltaUsuario")) {
+			System.out.println("llego a alta");
+			RequestDispatcher rd = request.getRequestDispatcher("/altaUsuario.jsp");
+			rd.forward(request, response);
+		}
+		}
+			
+		}
 		
 		
-		
-	}
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
+
+		
+		
+		if(request.getParameter("btnAceptar")!= null) {
+			
+			Usuario reg = new Usuario();
+			
+			reg.setIdUsuario(request.getParameter("txtIdUsuario"));
+			reg.setPass(request.getParameter("txtPassword"));
+			
+			
+			IDaoUsuario aux = new DaoUsuarioImplementado ();
+		
+			
+			aux.insertarUsuario(reg);
+			
+			
+			System.out.println("Insert OK");
+			
+			
+			RequestDispatcher rd = request.getRequestDispatcher("/altaUsuario.jsp");
+			rd.forward(request, response);
+			
+			
+			}
+			
+		
+		
+		
+		
+		
+		
+		
+		
 		doGet(request, response);
+		
+		
+		
+		
+		
+		
+		
 	}
 
 }

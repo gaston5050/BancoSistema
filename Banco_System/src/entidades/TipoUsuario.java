@@ -9,7 +9,7 @@ public class TipoUsuario {
 	
 	public TipoUsuario() {
 		
-		this.idTipoUsuario = 0;
+		this.idTipoUsuario = 2;
 		this.descripcion = "";
 	}
 	public TipoUsuario(int idTipoUsuario, String descripcion) {
