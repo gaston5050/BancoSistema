@@ -9,5 +9,7 @@ public interface INegocioUsuario {
 	
 	
 	public ArrayList<Usuario> leerTodos();
+	public boolean insertarUsuario(Usuario usuario);
+	
 
 }

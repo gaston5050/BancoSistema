@@ -3,7 +3,6 @@ package servlet;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,23 +10,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.IDaoUsuario;
-import daoImplementado.DaoUsuarioImplementado;
-import entidades.Usuario;
-import negocio.INegocioUsuario;
-import negocioImplementado.NegocioUsuarioImplementado;
+import entidades.Cliente;
+import negocio.INegocioCliente;
+import negocioImplementado.NegocioClienteImplementado;
 
 /**
- * Servlet implementation class ServletUsuario
+ * Servlet implementation class ServletCliente
  */
-@WebServlet("/ServletUsuario")
-public class ServletUsuario extends HttpServlet {
+@WebServlet("/ServletCliente")
+public class ServletCliente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletUsuario() {
+    public ServletCliente() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,12 +36,12 @@ public class ServletUsuario extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		if(request.getParameter("Param")!= null) {
+if(request.getParameter("Param")!= null) {
 			
-			if (request.getParameter("Param").equals("ListarUsuarios")){
+			if (request.getParameter("Param").equals("ListarClientes")){
 			
-			ArrayList<Usuario> listado = new ArrayList<Usuario>();
-			INegocioUsuario reg = new NegocioUsuarioImplementado();
+			ArrayList<Cliente> listado = new ArrayList<Cliente>();
+			INegocioCliente reg = new NegocioClienteImplementado();
 			
 			listado = reg.leerTodos();
 			
@@ -63,61 +60,17 @@ public class ServletUsuario extends HttpServlet {
 			rd.forward(request, response);
 		}
 		}
-			
-		}
 		
 		
-	
+		
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
-		
-		
-		if(request.getParameter("btnAceptar")!= null) {
-			
-			Usuario reg = new Usuario();
-			
-			reg.setIdUsuario(request.getParameter("txtIdUsuario"));
-			reg.setPass(request.getParameter("txtPassword"));
-			
-			
-			
-			INegocioUsuario aux = new NegocioUsuarioImplementado();
-			
-		
-			
-			aux.insertarUsuario(reg);
-			
-			
-			System.out.println("Insert OK");
-			
-			
-			RequestDispatcher rd = request.getRequestDispatcher("/altaUsuario.jsp");
-			rd.forward(request, response);
-			
-			
-			}
-			
-		
-		
-		
-		
-		
-		
-		
-		
+		// TODO Auto-generated method stub
 		doGet(request, response);
-		
-		
-		
-		
-		
-		
-		
 	}
 
 }

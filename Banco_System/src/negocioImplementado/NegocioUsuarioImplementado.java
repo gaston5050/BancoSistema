@@ -20,6 +20,19 @@ public class NegocioUsuarioImplementado implements INegocioUsuario {
 		
 		return listado;
 	}
+
+	@Override
+	public boolean insertarUsuario(Usuario usuario) {
+		
+		boolean estado = false;
+		IDaoUsuario aux = new DaoUsuarioImplementado();
+		
+		estado = aux.insertarUsuario(usuario);
+		
+		
+		
+		return estado;
+	}
 	
 	
 	
