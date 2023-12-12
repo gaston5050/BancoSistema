@@ -72,10 +72,10 @@
 							          	
 			      			 <li>
 			      	
-						  		<a  class="dropdown-item" href = "ServletUsuario?Param=ListarUsuarios"> Listar Usuarios</a>
+						  		<a  class="dropdown-item" href = "ServletUsuario?Param=ListarUsuarios"> Listar Clientes</a>
 						    </li>
 						    <li>
-						    		<a  class="dropdown-item" href = "ServletUsuario?Param=AltaUsuario"> Alta Usuario</a>
+						    		<a  class="dropdown-item" href = "ServletUsuario?Param=AltaUsuario"> Alta Cliente</a>
 							
 								
 							</li>
