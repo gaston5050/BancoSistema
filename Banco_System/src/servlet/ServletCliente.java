@@ -45,18 +45,18 @@ if(request.getParameter("Param")!= null) {
 			
 			listado = reg.leerTodos();
 			
-			request.setAttribute("listadoUsuarios", listado);
+			request.setAttribute("listadoClientes", listado);
 			
 			
-			RequestDispatcher rd = request.getRequestDispatcher("/listarUsuarios.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/listarClientes.jsp");
 			rd.forward(request, response);
 		}
 		
 		
 			
-			if (request.getParameter("Param").equals("AltaUsuario")) {
+			if (request.getParameter("Param").equals("AltaCliente")) {
 			System.out.println("llego a alta");
-			RequestDispatcher rd = request.getRequestDispatcher("/altaUsuario.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/altaCliente.jsp");
 			rd.forward(request, response);
 		}
 		}
@@ -70,6 +70,20 @@ if(request.getParameter("Param")!= null) {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		doGet(request, response);
 	}
 

@@ -17,7 +17,7 @@ public class DaoClienteImplementado implements IDaoCliente {
 	private static final String InsertarCliente = "insert into clientes (dni, cuil, nombre, apellido, sexo, nacionalidad, fechanacimiento, idlocalidad, idprovincia, direccion, email, celular, telefonofijo, estado) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	
 	@Override
-	public boolean insertarUsuario(Cliente cliente) {
+	public boolean insertarCliente(Cliente cliente) {
 		
 		PreparedStatement statement;
 		Connection conexion = Conexion.getConnection().getSQLConexion();
@@ -39,7 +39,9 @@ public class DaoClienteImplementado implements IDaoCliente {
 			statement.setInt(9, cliente.getIdProvincia());
 			statement.setString(10, cliente.getDireccion());
 			statement.setString(11, cliente.getEmail());
-			statement.setString(12, cliente.getcelu);
+			statement.setString(12, cliente.getCelular());
+			statement.setString(13, cliente.getTelefonoFijo());
+			statement.setBoolean(14, cliente.isEstado());
 			
 			
 			if(statement.executeUpdate() > 0) {
@@ -65,11 +67,11 @@ public class DaoClienteImplementado implements IDaoCliente {
 	
 	
 	@Override
-	public ArrayList<Usuario> leerTodos() {
+	public ArrayList<Cliente> leerTodos() {
 		PreparedStatement statement;
 		ResultSet resultSet;
 		
-		ArrayList<Usuario> listado = new ArrayList<Usuario>();
+		ArrayList<Cliente> listado = new ArrayList<Cliente>();
 		Connection connection = Conexion.getConnection().getSQLConexion();
 		
 		
@@ -82,16 +84,23 @@ public class DaoClienteImplementado implements IDaoCliente {
 				while(resultSet.next()) {
 					
 					
-					Usuario auxiliar = new Usuario();
-					
-					auxiliar.setIdUsuario(resultSet.getString("idUsuario"));
-					auxiliar.setPass(resultSet.getString("Clave"));
-					TipoUsuario tipoUsuario = new TipoUsuario();
-					tipoUsuario.setIdTipoUsuario(resultSet.getInt("idTipoUsuario"));
-					auxiliar.setTipoUsuario(tipoUsuario);
-					auxiliar.setNumeroCliente(resultSet.getInt("nroCliente"));
+					Cliente auxiliar = new Cliente();
+					//dni, cuil, nombre, apellido, sexo, nacionalidad, fechanacimiento, idlocalidad, idprovincia, direccion, email, celular, telefonofijo, estado
+					auxiliar.setNroCliente(resultSet.getInt("nroCliente"));
+					auxiliar.setDni(resultSet.getString("dni"));
+					auxiliar.setCuil(resultSet.getString("cuil"));
+					auxiliar.setApellido(resultSet.getString("apellido"));
+					auxiliar.setNombre(resultSet.getString("nombre"));
+					auxiliar.setSexo(resultSet.getString("sexo"));
+					auxiliar.setNacionalidad(resultSet.getString("nacionalidad"));
+					auxiliar.setFechaNac(resultSet.getDate("fechanacimiento"));
+					auxiliar.setIdLocalidad(resultSet.getInt("idlocalidad"));
+					auxiliar.setIdProvincia(resultSet.getInt("idProvincia"));
+					auxiliar.setDireccion(resultSet.getString("direccion"));
+					auxiliar.setEmail(resultSet.getString("email"));
+					auxiliar.setCelular(resultSet.getString("celular"));
+					auxiliar.setTelefonoFijo(resultSet.getString("telefonoFijo"));
 					auxiliar.setEstado(resultSet.getBoolean("estado"));
-					
 					listado.add(auxiliar);
 					
 				}

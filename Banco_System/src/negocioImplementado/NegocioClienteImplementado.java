@@ -19,7 +19,7 @@ public class NegocioClienteImplementado implements INegocioCliente {
 		
 		ArrayList<Cliente> listado = null;
 		
-		IDaoUsuario aux = new DaoUsuarioImplementado();
+		IDaoCliente aux = new DaoClienteImplementado();
 		
 		listado = aux.leerTodos();
 		
@@ -29,7 +29,7 @@ public class NegocioClienteImplementado implements INegocioCliente {
 	
 
 	@Override
-	public boolean insertarUsuario(Cliente cliente) {
+	public boolean insertarCliente(Cliente cliente) {
 		boolean estado = false;
 		IDaoCliente aux = new DaoClienteImplementado();
 		

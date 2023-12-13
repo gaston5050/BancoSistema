@@ -8,6 +8,6 @@ public interface IDaoCliente  {
 
 	
 	public ArrayList<Cliente> leerTodos();
-	public boolean insertarUsuario(Cliente usuario);
+	public boolean insertarCliente(Cliente usuario);
 	
 }

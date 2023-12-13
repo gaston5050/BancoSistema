@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import = "entidades.Usuario" %>
+<%@ page import = "entidades.Cliente" %>
 <%@ page import= "java.util.ArrayList" %>
 
 
@@ -19,41 +19,50 @@
 <%@include file="menu.jsp" %>
 	
 	<div>
-		<div class="d-flex justify-content-center">
+	  	<div class="container ">
+		<div class="d-flex justify-content-center w-auto small text-center">
 				
 											
 							
 					<%System.out.println("llego al listado"); %>
 						
 						<%
-						if(request.getAttribute("listadoUsuarios")!= null){
+						if(request.getAttribute("listadoClientes")!= null){
 							int a = 0;
-							ArrayList<Usuario> lista = (ArrayList<Usuario>)request.getAttribute("listadoUsuarios");
+							ArrayList<Cliente> lista = (ArrayList<Cliente>)request.getAttribute("listadoClientes");
 							
 							%>
-							<table class= "table table-dark table-striped w-25 p-3   table-bordered">
+							<table class= "table table-striped table-hover table-bordered">
 								<thead>
 									<tr>
-										<td scope="col"> Usuario</td>
-										<td scope="col"> Pass </td>	
-										<td scope = "col">IdTipoUsuario </td>
-										<td scope = "col">Estado </td>
-										<td scope = "col">NroCliente </td>
+										<td scope="col"> Nro de Cliente</td>
+										<td scope="col"> DNI </td>	
+										<td scope = "col">CUIL </td>
+										<td scope = "col">Nombre </td>
+										<td scope = "col">Apellido</td>
+										<td scope = "col">Estado</td>
 									</tr>
 								</thead>		
 							<%
-							for(Usuario item : lista) {
+							for(Cliente item : lista) {
 								a++;
 								%>
 								
 								<tbody>
 									<tr>
-										<td> <%=item.getIdUsuario() %></td>
-										<td> <%=item.getPass() %> </td>	
-										<td> <%if(item.getTipoUsuario().getIdTipoUsuario() == 1) {%> ADMINISTRADOR <% } else { %>  CLIENTE <%}%></td>
-										 <%if(item.isEstado()) {%><td class="text-success"> ACTIVO </td><%} else {%> <td class="text-danger">INACTIVO</td> <%} %> 
-										<td><%=item.getNumeroCliente()%></td>
-									
+										<td> <%=item.getNroCliente() %></td>
+										<td> <%=item.getDni() %></td>
+										<td> <%=item.getCuil() %></td>
+										<td> <%= item.getNombre()%></td>
+										<td> <%=item.getApellido() %></td>
+										<%if(item.isEstado()) {%><td class="text-success"> ACTIVO </td><%} else {%> <td class="text-danger">INACTIVO</td> <%} %> 
+										<form action ="ServletCliente.jsp" method = "post">
+										<td><input type= "submit" name = "btnBaja" value= "Baja" class="btn btn-danger" /></td>
+										<td><input type= "submit" name = "btnModificar" value= "Modificar" class="btn btn-warning" /></td>
+										<td><input type= "submit" name = "btnDatos" value= "Datos" class="btn btn-info" /></td>
+										<td><input type= "submit" name = "btnMovimientos" value= "Movimientos" class="btn btn-primary" /></td>
+										<td><input type= "submit" name = "btnPrestamos" value= "Prestamos" class="btn btn-success" /></td>
+										</form>
 									</tr>
 									
 								</tbody>		
@@ -73,7 +82,7 @@
 					
 	
 		</div>
-	
+	</div>
 	</div>
 		
 	

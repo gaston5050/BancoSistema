@@ -9,6 +9,6 @@ public interface INegocioCliente {
 	
 	
 	public ArrayList<Cliente> leerTodos();
-	public boolean insertarUsuario(Cliente cliente);
+	public boolean insertarCliente(Cliente cliente);
 
 }

@@ -14,6 +14,8 @@ public class Cliente {
 	private int idProvincia;
 	private String direccion;
 	private String email;
+	private String telefonoFijo;
+	private String celular;
 	private boolean estado;
 	
 	public Cliente() {
@@ -30,12 +32,14 @@ public class Cliente {
 		this.idProvincia = 1;
 		this.direccion = "";
 		this.email = "";
+		this.telefonoFijo="";
+		this.celular = "";
 		this.estado = false;
 	}
 	
 	
 	public Cliente(int nroCliente, String dni, String cuil, String nombre, String apellido, String sexo,
-			String nacionalidad, Date fechaNac, int idLocalidad, int idProvincia, String direccion, String email) {
+			String nacionalidad, Date fechaNac, int idLocalidad, int idProvincia, String direccion, String email, String telefonoFijo, String celular) {
 		super();
 		this.nroCliente = nroCliente;
 		this.dni = dni;
@@ -49,10 +53,32 @@ public class Cliente {
 		this.idProvincia = idProvincia;
 		this.direccion = direccion;
 		this.email = email;
+		this.telefonoFijo = telefonoFijo;
+		this.celular = celular;
 		this.estado = false;
 	}
 	
 	
+	public String getTelefonoFijo() {
+		return telefonoFijo;
+	}
+
+
+	public void setTelefonoFijo(String telefonoFijo) {
+		this.telefonoFijo = telefonoFijo;
+	}
+
+
+	public String getCelular() {
+		return celular;
+	}
+
+
+	public void setCelular(String celular) {
+		this.celular = celular;
+	}
+
+
 	public boolean isEstado() {
 		return estado;
 	}
