@@ -3,7 +3,9 @@ package negocioImplementado;
 import java.util.ArrayList;
 
 import dao.IDaoCliente;
+import dao.IDaoUsuario;
 import daoImplementado.DaoClienteImplementado;
+import daoImplementado.DaoUsuarioImplementado;
 import entidades.Cliente;
 import negocio.INegocioCliente;
 
