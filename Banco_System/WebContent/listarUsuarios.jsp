@@ -18,8 +18,9 @@
 <body>
 <%@include file="menu.jsp" %>
 	
-	<div>
-		<div class="d-flex justify-content-center">
+	<div class="container ">
+	
+		<div class="d-flex justify-content-center w-auto small text-center">
 				
 											
 							
@@ -31,7 +32,7 @@
 							ArrayList<Usuario> lista = (ArrayList<Usuario>)request.getAttribute("listadoUsuarios");
 							
 							%>
-							<table class= "table table-dark table-striped w-25 p-3   table-bordered">
+							<table class= "table table-striped table-hover table-bordered">
 								<thead>
 									<tr>
 										<td scope="col"> Usuario</td>
@@ -53,6 +54,11 @@
 										<td> <%if(item.getTipoUsuario().getIdTipoUsuario() == 1) {%> ADMINISTRADOR <% } else { %>  CLIENTE <%}%></td>
 										 <%if(item.isEstado()) {%><td class="text-success"> ACTIVO </td><%} else {%> <td class="text-danger">INACTIVO</td> <%} %> 
 										<td><%=item.getNumeroCliente()%></td>
+										<td><input type= "submit" name = "btnBaja" value= "Baja" class="btn btn-danger" /></td>
+										<td><input type= "submit" name = "btnModificar" value= "Modificar" class="btn btn-warning" /></td>
+										<td><input type= "submit" name = "btnDatos" value= "Datos" class="btn btn-info" /></td>
+										<td><input type= "submit" name = "btnMovimientos" value= "Movimientos" class="btn btn-primary" /></td>
+										<td><input type= "submit" name = "btnPrestamos" value= "Prestamos" class="btn btn-success" /></td>
 									
 									</tr>
 									
