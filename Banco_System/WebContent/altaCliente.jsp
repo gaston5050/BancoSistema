@@ -79,7 +79,7 @@
  				 <div class="form-group row ">
    					 <label  class="col-sm-2 col-form-label">Fecha de Nacimiento</label>
   					  <div class="col-sm-10">
-    				  <input type="text" class="form-control" name="txtIdUsuario" placeholder="Ingrese usuario.">
+    				 <input type="date" name="dtpFechaNacimiento"></input>
    					  </div>
  				 </div>
  				 <div class="form-group row ">
