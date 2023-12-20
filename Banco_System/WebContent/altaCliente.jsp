@@ -1,5 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+
     pageEncoding="ISO-8859-1"%>
+<%@ page import = "entidades.Provincia" %>
+<%@ page import= "java.util.ArrayList" %>
+<%@ page import= "java.util.Iterator" %>
+
+
+
+
+
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -82,12 +93,78 @@
     				 <input type="date" name="dtpFechaNacimiento"></input>
    					  </div>
  				 </div>
+ 				 
+ 				 
+ 				 
+ 				 
+ 				 
+ 				 
  				 <div class="form-group row ">
-   					 <label  class="col-sm-2 col-form-label">Usuario</label>
+ 				 
+ 				 
+ 				 
+   					 <label  class="col-sm-2 col-form-label">Provincia </label>
   					  <div class="col-sm-10">
-    				  <input type="text" class="form-control" name="txtIdUsuario" placeholder="Ingrese usuario.">
+    				     					  <select id="provinciaSelect" onchange="actualizarLocalidades()">
+    				     					  
+    				     					  
+					 <% if (request.getParameter("ListaProvs")!= null){
+   						   
+   						   ArrayList<Provincia> lista =  new ArrayList<Provincia> ();
+   						   Object ob = request.getParameter("ListaProvs");
+   						   lista = (ArrayList<Provincia>)ob;
+   						  	
+   						  for(Provincia item : lista){
+   							 System.out.println("llego aca");
+   							 %>  <option> <%= item.getDescripcion()   %>      </option>   <%
+   							  
+   						  }
+   						  
+   						   
+   					   }
+   						   
+   						   
+   						   %>
+   					   
+											  </select>
+   			
+   				
+   					   <label  class="col-sm-2 col-form-label">    Localidad</label>
+    				   <select  id="localidadSelect">
+   					   <% if (request.getParameter("ListaProvs")!= null){
+   						   
+   						   ArrayList<Provincia> lista =  new ArrayList<Provincia> ();
+   						   Object ob = request.getParameter("ListaProvs");
+   						   lista = (ArrayList<Provincia>)ob;
+   						   Iterator it = lista.iterator();
+   						   
+   						   while(it.hasNext()){
+   							   
+   							  %>  <option> <%= it.next().toString() %>      </option>   <%
+   							   
+   							   
+   						   }
+   						   
+   						   
+   					   }
+   						   
+   						   
+   						   %>
+   					   
+											  </select>
+   			
    					  </div>
+   					  
+   					  
+		  
+   					  
+   					  
  				 </div>
+ 				 
+ 				 
+ 				 
+ 				 
+ 				 
  				 <div class="form-group row ">
    					 <label  class="col-sm-2 col-form-label">Usuario</label>
   					  <div class="col-sm-10">

@@ -11,6 +11,7 @@
 <title>Inicio</title>
 </head>
 <body>
+
   <%@include file="menu.jsp" %>
 
 

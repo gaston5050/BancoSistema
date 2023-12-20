@@ -11,8 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import entidades.Cliente;
+import entidades.Provincia;
 import negocio.INegocioCliente;
+import negocio.INegocioProvincia;
 import negocioImplementado.NegocioClienteImplementado;
+import negocioImplementado.NegocioProvinciaImplementado;
 
 /**
  * Servlet implementation class ServletCliente
@@ -56,6 +59,15 @@ if(request.getParameter("Param")!= null) {
 			
 			if (request.getParameter("Param").equals("AltaCliente")) {
 			System.out.println("llego a alta");
+			
+			 INegocioProvincia provincias = new NegocioProvinciaImplementado();
+			 ArrayList<Provincia> provs = provincias.leerTodas();
+			 
+			 request.setAttribute("ListaProvs", provs);	 
+			
+			 System.out.println(provs.size());
+			 System.out.println("Me voy del alta a alta");
+			
 			RequestDispatcher rd = request.getRequestDispatcher("/altaCliente.jsp");
 			rd.forward(request, response);
 		}
