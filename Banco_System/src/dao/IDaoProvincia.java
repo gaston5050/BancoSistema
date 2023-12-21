@@ -8,4 +8,5 @@ public interface IDaoProvincia {
 
 	
 	ArrayList<Provincia> leerTodas();
+	Provincia getSingle(int idProvincia);
 }

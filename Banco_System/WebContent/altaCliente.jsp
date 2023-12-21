@@ -108,10 +108,10 @@
     				     					  <select id="provinciaSelect" onchange="actualizarLocalidades()">
     				     					  
     				     					  
-					 <% if (request.getParameter("ListaProvs")!= null){
+					 <% if (request.getAttribute("ListaProvs")!= null){
    						   
    						   ArrayList<Provincia> lista =  new ArrayList<Provincia> ();
-   						   Object ob = request.getParameter("ListaProvs");
+   						   Object ob = request.getAttribute("ListaProvs");
    						   lista = (ArrayList<Provincia>)ob;
    						  	
    						  for(Provincia item : lista){

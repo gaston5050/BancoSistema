@@ -2,6 +2,11 @@ package entidades;
 
 public class Provincia {
 	
+	@Override
+	public String toString() {
+		
+		return this.id + this.descripcion;
+	}
 	private int id;
 	private String descripcion;
 	
