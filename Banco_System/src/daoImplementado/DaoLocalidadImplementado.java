@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-
+import com.mysql.cj.xdevapi.Statement;
 
 import dao.IDaoLocalidad;
 import entidades.Localidad;
@@ -15,6 +15,7 @@ public class DaoLocalidadImplementado implements IDaoLocalidad{
 
 	
 	public static String LeerLocalidades = "Select idLocalidad, idProvincia, descripcion from localidades";
+	public static String getSingle = "Select idLocalidad, idProvincia, descripcion from localidades where idLocalidad = ?";
 	
 	@Override
 	public ArrayList<Localidad> leerTodas() {
@@ -72,8 +73,47 @@ public class DaoLocalidadImplementado implements IDaoLocalidad{
 
 	@Override
 	public Localidad getSingle(int idLocalidad) {
-		// TODO Auto-generated method stub
-		return null;
+	
+		Localidad loca = new Localidad();
+		
+		
+		PreparedStatement query;
+		ResultSet resultado;
+		Connection conexion = Conexion.getConnection().getSQLConexion();
+		
+		
+		
+		try {
+			
+			
+			query = conexion.prepareStatement(getSingle);
+			
+			query.setString(1, String.valueOf(idLocalidad));
+			resultado = query.executeQuery();
+			
+			loca.setDescripcion(resultado.getString("descripcion"));
+			loca.setId(resultado.getInt("idLocalidad"));
+			Provincia provincia = new Provincia();
+			provincia.setId(resultado.getInt("idProvincia"));
+			loca.setProvincia(provincia);
+			
+			System.out.println("cargo localidad en dao implementado OK");
+			System.out.println(loca.toString());
+			System.out.println("cargo localidad en dao implementado OK");
+
+			
+			
+		}
+		catch(Exception e) {
+			
+			e.printStackTrace();
+			
+		}
+			
+		
+		
+		
+		return loca;
 	}
 
 	

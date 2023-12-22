@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"  pageEncoding="ISO-8859-1"%>
 <%@ page import= "dao.IDaoProvincia" %>
+<%@ page import = "dao.IDaoLocalidad" %>
+<%@ page import= "daoImplementado.DaoLocalidadImplementado" %>
+<%@ page import = "entidades.Localidad" %>
+
+<%@ page import= "java.util.ArrayList" %>
+
 <%@ page import= "daoImplementado.DaoProvinciaImplementado" %>
 <%@ page import = "entidades.Provincia" %>
 
@@ -20,7 +26,32 @@
 
   <%@include file="menu.jsp" %>
 
+<%
 
+	IDaoLocalidad loca = new DaoLocalidadImplementado();
+	ArrayList<Localidad> listado = new ArrayList<Localidad>();
+	Localidad localidad = new Localidad();
+	listado = loca.leerTodas();
+	System.out.println(listado.size());
+	localidad = loca.getSingle(2);
+	System.out.println("descripcion ");
+	System.out.println(localidad.getDescripcion());
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+%>
 
 
 </body>
