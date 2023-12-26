@@ -82,7 +82,8 @@ public class DaoLocalidadImplementado implements IDaoLocalidad{
 		Connection conexion = Conexion.getConnection().getSQLConexion();
 		
 		
-		
+		System.out.println("sigle localidad llega OK");
+
 		try {
 			
 			
@@ -90,7 +91,7 @@ public class DaoLocalidadImplementado implements IDaoLocalidad{
 			
 			query.setString(1, String.valueOf(idLocalidad));
 			resultado = query.executeQuery();
-			
+			resultado.next();
 			loca.setDescripcion(resultado.getString("descripcion"));
 			loca.setId(resultado.getInt("idLocalidad"));
 			Provincia provincia = new Provincia();
@@ -112,7 +113,7 @@ public class DaoLocalidadImplementado implements IDaoLocalidad{
 			
 		
 		
-		
+		System.out.println("sigle localidad se va OK");
 		return loca;
 	}
 
