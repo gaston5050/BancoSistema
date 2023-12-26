@@ -25,33 +25,21 @@
 <body>
 
   <%@include file="menu.jsp" %>
-
 <%
 
 	IDaoLocalidad loca = new DaoLocalidadImplementado();
-	ArrayList<Localidad> listado = new ArrayList<Localidad>();
-	Localidad localidad = new Localidad();
-	listado = loca.leerTodas();
-	System.out.println(listado.size());
-	localidad = loca.getSingle(2);
-	System.out.println("descripcion ");
-	System.out.println(localidad.getDescripcion());
+	ArrayList<Localidad> locas = new ArrayList<Localidad>();
 	
-
-	
-
-
-
-
-
-
-
-
-
-
+	 locas = loca.leerTodasXProvincia(1);
+	 
+	 for(Localidad item : locas){
+		 
+		 System.out.println(item.getDescripcion());
+	 }
 
 
 %>
+
 
 
 </body>

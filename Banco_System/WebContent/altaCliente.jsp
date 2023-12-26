@@ -19,7 +19,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
-<title>Insert title here</title>
+<title>Alta cliente</title>
 </head>
 <body>
   <%@include file="menu.jsp" %>
@@ -129,8 +129,8 @@
 											  </select>
    			
    				
-   					   <label  class="col-sm-2 col-form-label">    Localidad</label>
-    				   <select  id="localidadSelect">
+   					   <label  class="col-sm-2 col-form-label" id= "lblSelectLocalidad" style = "display:none;" >    Localidad</label>
+    				   <select  id="cboLocalidadSelect" style = "display:none;" onchange = "cargarLocalidades">
    					   <% if (request.getParameter("ListaProvs")!= null){
    						   
    						   ArrayList<Provincia> lista =  new ArrayList<Provincia> ();
@@ -212,7 +212,23 @@
 	</div>
 
 
+<script>
 
+	function cargarLocalidades(){
+		
+		//capturo que elegi en el primer select
+		var seleccionProvincia = document.getElementById("provinciaSelect");
+		
+		window.location.replace(ServletProvincia?Provincia=seleccionProvincia);	
+		
+		
+		
+		
+	}
+
+
+
+</script>
 
 
 

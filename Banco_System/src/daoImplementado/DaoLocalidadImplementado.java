@@ -16,6 +16,7 @@ public class DaoLocalidadImplementado implements IDaoLocalidad{
 	
 	public static String LeerLocalidades = "Select idLocalidad, idProvincia, descripcion from localidades";
 	public static String getSingle = "Select idLocalidad, idProvincia, descripcion from localidades where idLocalidad = ?";
+	public static String LocalidadessXProvincia = "select idLocalidad, descripcion, idProvincia from localidades  where idProvincia = ?";
 	
 	@Override
 	public ArrayList<Localidad> leerTodas() {
@@ -115,6 +116,55 @@ public class DaoLocalidadImplementado implements IDaoLocalidad{
 		
 		System.out.println("sigle localidad se va OK");
 		return loca;
+	}
+
+	@Override
+	public ArrayList<Localidad> leerTodasXProvincia(int idProvincia) {
+		
+		ArrayList<Localidad> locas = new ArrayList<Localidad>();
+		
+		PreparedStatement query;
+		ResultSet resultado;
+		Connection conexion = Conexion.getConnection().getSQLConexion();
+		
+		
+		System.out.println(" localidades por prov llega OK");
+
+		try {
+			
+			
+			query = conexion.prepareStatement(LocalidadessXProvincia =);
+			
+			query.setString(1, String.valueOf(idProvincia));
+			resultado = query.executeQuery();
+			
+			while(resultado.next()) {
+				Localidad loca = new Localidad();
+				loca.setDescripcion(resultado.getString("descripcion"));
+				loca.setId(resultado.getInt("idLocalidad"));
+				Provincia provincia = new Provincia();
+				provincia.setId(resultado.getInt("idProvincia"));
+				loca.setProvincia(provincia);
+				
+				locas.add(loca);
+				
+			}
+			
+			
+
+			
+			
+		}
+		catch(Exception e) {
+			
+			e.printStackTrace();
+			
+		}
+			
+		
+		
+		System.out.println("sigle localidad se va OK");
+		return locas;
 	}
 
 	
