@@ -2,6 +2,8 @@
 
     pageEncoding="ISO-8859-1"%>
 <%@ page import = "entidades.Provincia" %>
+<%@ page import = "entidades.Localidad" %>
+
 <%@ page import= "java.util.ArrayList" %>
 <%@ page import= "java.util.Iterator" %>
 
@@ -105,7 +107,7 @@
  				 
    					 <label  class="col-sm-2 col-form-label">Provincia </label>
   					  <div class="col-sm-10">
-    				     					  <select id="provinciaSelect" onchange="actualizarLocalidades()">
+    				     					  <select id="provinciaSelect" onchange="cargarLocalidades()">
     				     					  
     				     					  
 					 <% if (request.getAttribute("ListaProvs")!= null){
@@ -116,7 +118,7 @@
    						  	
    						  for(Provincia item : lista){
    							 System.out.println("llego aca");
-   							 %>  <option> <%= item.getDescripcion()   %>      </option>   <%
+   							 %>  <option value = "<%=item.getId() %>" > <%= item.getDescripcion()   %>  </option><%
    							  
    						  }
    						  
@@ -129,18 +131,20 @@
 											  </select>
    			
    				
-   					   <label  class="col-sm-2 col-form-label" id= "lblSelectLocalidad" style = "display:none;" >    Localidad</label>
-    				   <select  id="cboLocalidadSelect" style = "display:none;" onchange = "cargarLocalidades">
-   					   <% if (request.getParameter("ListaProvs")!= null){
+   					   <label  class="col-sm-2 col-form-label" id= "lblSelectLocalidad">    Localidad</label>
+    				   <select  id="cboLocalidadSelect" >
+   					   <% if (request.getAttribute("localidadXProvincia")!= null){
    						   
-   						   ArrayList<Provincia> lista =  new ArrayList<Provincia> ();
-   						   Object ob = request.getParameter("ListaProvs");
-   						   lista = (ArrayList<Provincia>)ob;
+   						   ArrayList<Localidad> lista =  new ArrayList<Localidad> ();
+   						   Object ob = request.getAttribute("localidadXProvincia");
+   						   lista = (ArrayList<Localidad>)ob;
    						   Iterator it = lista.iterator();
    						   
    						   while(it.hasNext()){
+   							   Localidad reg = new Localidad();
+   							   reg = (Localidad)it.next();
    							   
-   							  %>  <option> <%= it.next().toString() %>      </option>   <%
+   							  %>  <option> <%=reg.getDescripcion() %>      </option>   <%
    							   
    							   
    						   }
@@ -217,9 +221,10 @@
 	function cargarLocalidades(){
 		
 		//capturo que elegi en el primer select
-		var seleccionProvincia = document.getElementById("provinciaSelect");
+		var seleccionP = document.getElementById("provinciaSelect");
+		var seleccionProvincia = seleccionP.value;
 		
-		window.location.replace(ServletProvincia?Provincia=seleccionProvincia);	
+		window.location.replace("ServletUbicacion?Provincia="+seleccionProvincia);	
 		
 		
 		

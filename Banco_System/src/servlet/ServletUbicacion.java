@@ -3,6 +3,7 @@ package servlet;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,10 +42,12 @@ public class ServletUbicacion extends HttpServlet {
 			//obtengo las las localidades de la provincia seleccionada
 			ArrayList<Localidad> listadoLoca = new ArrayList<Localidad> ();
 			INegocioLocalidad loca = new NegocioLocalidadImplementado();
-			listadoLoca = loca.leerTodasXProvincia();
+			listadoLoca = loca.leerTodasXProvincia(Integer.valueOf(request.getParameter("Provincia")));
 			
-			
-			
+			request.setAttribute("localidadXProvincia", listadoLoca);
+			System.out.println("LLegue al servlet de ubicacion");
+			RequestDispatcher rd = request.getRequestDispatcher("altaCliente.jsp");
+			rd.forward(request, response);
 			
 			
 		}

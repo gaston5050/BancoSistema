@@ -133,7 +133,7 @@ public class DaoLocalidadImplementado implements IDaoLocalidad{
 		try {
 			
 			
-			query = conexion.prepareStatement(LocalidadessXProvincia =);
+			query = conexion.prepareStatement(LocalidadessXProvincia );
 			
 			query.setString(1, String.valueOf(idProvincia));
 			resultado = query.executeQuery();
