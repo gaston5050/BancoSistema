@@ -71,6 +71,11 @@ if(request.getParameter("Param")!= null) {
 			RequestDispatcher rd = request.getRequestDispatcher("/altaCliente.jsp");
 			rd.forward(request, response);
 		}
+			
+			
+			
+			
+			
 		}
 		
 		

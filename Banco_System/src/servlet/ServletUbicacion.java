@@ -37,7 +37,7 @@ public class ServletUbicacion extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	
 		
-		if(request.getParameter("Provincia") != null) {
+		if(request.getParameter("provinciaSelect") != null) {
 			
 			//obtengo las las localidades de la provincia seleccionada
 			ArrayList<Localidad> listadoLoca = new ArrayList<Localidad> ();
@@ -51,6 +51,8 @@ public class ServletUbicacion extends HttpServlet {
 			
 			
 		}
+		
+		log("hola");
 		
 		
 		

@@ -34,7 +34,7 @@
   	<div class="container p-4">
 				
 		
-		<form method= "post" action="ServletUsuario" class="col-md-6 offset-md-3  ">
+		<form method= "post" action="ServletUbicacion" class="col-md-6 offset-md-3  ">
   			
   				
   			<div class="col-auto">
@@ -122,8 +122,8 @@
    						   lista = (ArrayList<Provincia>)ob;
    						  	
    						  for(Provincia item : lista){
-   							 System.out.println("llego aca");
-   							 %>  <option value = "<%=item.getId() %>" > <%= item.getDescripcion()   %>  </option><%
+   							 System.out.println("llego aca listo provs en altacliente ");
+   							 %>  <option value = "<%=item.getId() %>" > <%= item.getDescripcion()  %>  </option><%
    							  
    						  }
    						  
@@ -149,7 +149,7 @@
    							   Localidad reg = new Localidad();
    							   reg = (Localidad)it.next();
    							   
-   							  %>  <option> <%=reg.getDescripcion() %>      </option>   <%
+   							  %>  <option > <%=reg.getDescripcion() %>      </option>   <%
    							   
    							   
    						   }
@@ -221,7 +221,7 @@
 	</div>
 
 
-<script>
+ <script>
 
 	function cargarLocalidades(){
 		
@@ -237,6 +237,7 @@
 				Provincia: seleccionProvincia
 			},
 			success: function(data){
+				
 				$("#cboLocalidadSelect").html(data);
 				
 			}
@@ -248,7 +249,7 @@
 
 
 
-</script>
+ </script>
 
 
 

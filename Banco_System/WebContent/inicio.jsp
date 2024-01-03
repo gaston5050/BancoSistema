@@ -26,6 +26,8 @@
 
   <%@include file="menu.jsp" %>
 <%
+
+//log("menu");
 /*
 	IDaoLocalidad loca = new DaoLocalidadImplementado();
 	ArrayList<Localidad> locas = new ArrayList<Localidad>();

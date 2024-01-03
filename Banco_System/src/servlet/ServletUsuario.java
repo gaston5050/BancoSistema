@@ -39,6 +39,10 @@ public class ServletUsuario extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
+		
+		
+		
+		
 		if(request.getParameter("Param")!= null) {
 			
 			if (request.getParameter("Param").equals("ListarUsuarios")){
@@ -60,6 +64,7 @@ public class ServletUsuario extends HttpServlet {
 			if (request.getParameter("Param").equals("AltaUsuario")) {
 			System.out.println("llego a alta");
 			RequestDispatcher rd = request.getRequestDispatcher("/altaUsuario.jsp");
+			
 			rd.forward(request, response);
 		}
 		}
