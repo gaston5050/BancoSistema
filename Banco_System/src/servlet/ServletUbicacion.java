@@ -36,8 +36,10 @@ public class ServletUbicacion extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	
+		log("hola");
+		System.out.println("Provincia seleccionada: " + request.getParameter("Provincia"));
 		
-		if(request.getParameter("provinciaSelect") != null) {
+		if(request.getParameter("Provincia") != null) {
 			
 			//obtengo las las localidades de la provincia seleccionada
 			ArrayList<Localidad> listadoLoca = new ArrayList<Localidad> ();
@@ -52,7 +54,6 @@ public class ServletUbicacion extends HttpServlet {
 			
 		}
 		
-		log("hola");
 		
 		
 		

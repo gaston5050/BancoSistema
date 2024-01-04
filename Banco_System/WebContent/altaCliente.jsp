@@ -40,6 +40,7 @@
   			<div class="col-auto">
   			
   				 <div class="form-group row">
+  				 
    					 <label  class="col-sm-2 col-form-label">Cliente</label>
    					 
    					 <div class="col-sm-10">
@@ -112,7 +113,7 @@
  				 
    					 <label  class="col-sm-2 col-form-label">Provincia </label>
   					  <div class="col-sm-10">
-    				     					  <select id="provinciaSelect" onchange="cargarLocalidades()">
+								<select id="provinciaSelect" onchange="cargarLocalidades(this.value)">
     				     					  
     				     					  
 					 <% if (request.getAttribute("ListaProvs")!= null){
@@ -223,35 +224,31 @@
 
  <script>
 
-	function cargarLocalidades(){
-		
-		//capturo que elegi en el primer select
-		var seleccionP = document.getElementById("provinciaSelect");
-		var seleccionProvincia = seleccionP.value;
-		
-	//	window.location.replace("ServletUbicacion?Provincia="+seleccionProvincia);	
-		$.ajax({
-			type: "GET",
-			url: "ServletUbicacion",
-			data: {
-				Provincia: seleccionProvincia
-			},
-			success: function(data){
-				
-				$("#cboLocalidadSelect").html(data);
-				
-			}
-			
-		});
-		
-		
-	}
+ function cargarLocalidades(value) {
+	    var seleccionProvincia = value;
+	    console.log("Provincia seleccionada: " + value);
 
+	    // Comenté esta línea para que la llamada AJAX funcione correctamente
+	    // window.location.replace("ServletUbicacion?Provincia=" + seleccionProvincia);
+
+	    $.ajax({
+	        type: "POST",
+	        url: "ServletUbicacion",
+	        data: {
+	            Provincia: seleccionProvincia
+	        },
+	        success: function (data) {
+	            $("#cboLocalidadSelect").html(data);
+	        },
+	        error: function () {
+	            console.log("Error en la solicitud AJAX");
+	        }
+	    });
+	}
+	
 
 
  </script>
-
-
 
 
 
