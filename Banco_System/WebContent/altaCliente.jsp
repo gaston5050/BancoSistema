@@ -151,7 +151,7 @@
    						   while(it.hasNext()){
    							   Localidad reg = new Localidad();
    							   reg = (Localidad)it.next();
-   							   
+   							   log("mensaje de confirmacíon");
    							  %>  <option > <%=reg.getDescripcion() %>      </option>   <%
    							   
    							   
