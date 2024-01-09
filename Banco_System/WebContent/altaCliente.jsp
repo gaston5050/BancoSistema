@@ -138,10 +138,11 @@
    					   
 											  </select>
    			
-   				
+   						
    					   <label  class="col-sm-2 col-form-label" id= "lblSelectLocalidad">    Localidad</label>
+   					    <select  id="cboLocalidadSelect" > 
    					   <% if (request.getAttribute("localidadXProvincia")!= null){
-   						 %> <select  id="cboLocalidadSelect" > <%
+   						
    						   
    						   ArrayList<Localidad> lista =  new ArrayList<Localidad> ();
    						   Object ob = request.getAttribute("localidadXProvincia");
@@ -152,7 +153,8 @@
    							   Localidad reg = new Localidad();
    							   reg = (Localidad)it.next();
    							   log("mensaje de confirmacíon");
-   							  %>  <option > <%=reg.getDescripcion() %>      </option>   <%
+   							 
+   							  %>  <option >  <%=reg.getDescripcion() %>   </option>   <%
    							   
    							   
    						   }
@@ -238,9 +240,17 @@
 	        url: "ServletUbicacion",
 	        data: {
 	            Provincia: seleccionProvincia
-	        },
+	        }, 
 	        success: function (data) {
-	            $("#cboLocalidadSelect").html(data);
+	            // Empty the second select
+	            $("#cboLocalidadSelect").empty();
+	            console.log("Entra al forecahhhhhhasdfsdfsdfsfkX");
+	            // Add the new options
+	            $.each(data, function (index, item) {
+	                $("#cboLocalidadSelect").append('<option value="' + item.id + '">' + item.descripcion + '</option>');
+	          		console.log(item.descripcion);
+	            
+	            });
 	        },
 	        error: function () {
 	            console.log("Error en la solicitud AJAX");

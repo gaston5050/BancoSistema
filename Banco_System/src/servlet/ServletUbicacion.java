@@ -9,7 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import com.google.gson.*;
 import entidades.Localidad;
 import negocio.INegocioLocalidad;
 import negocioImplementado.NegocioLocalidadImplementado;
@@ -48,9 +48,15 @@ public class ServletUbicacion extends HttpServlet {
 			
 			request.setAttribute("localidadXProvincia", listadoLoca);
 			System.out.println("LLegue al servlet de ubicacion");
+			
+			response.setContentType("application/json");
+	        response.setCharacterEncoding("UTF-8");
+	        String json = new Gson().toJson(listadoLoca);
+	        response.getWriter().write(json);
+			/*
 			RequestDispatcher rd = request.getRequestDispatcher("altaCliente.jsp");
 			rd.forward(request, response);
-			
+			*/
 			
 		}
 		
