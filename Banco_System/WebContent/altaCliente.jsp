@@ -138,7 +138,7 @@
    					   
 											  </select>
    			
-   				
+   						
    					   <label  class="col-sm-2 col-form-label" id= "lblSelectLocalidad">    Localidad</label>
    					  <% //if (request.getAttribute("localidadXProvincia") != null) { %>
   					  <select id="cboLocalidadSelect" name="cboLocalidadSelect">
@@ -175,15 +175,15 @@
  				 </div>
  				 
  				  <div class="form-group row">
-   					 <label  class="col-sm-2 col-form-label">Contraseña</label>
+   					 <label  class="col-sm-2 col-form-label">Contraseï¿½a</label>
   					  <div class="col-sm-10">
-    				  <input type="password" class="form-control" name="txtPassword" placeholder="Contraseña">
+    				  <input type="password" class="form-control" name="txtPassword" placeholder="Contraseï¿½a">
    					  </div>
  				 </div>
  				   <div class="form-group row">
-   					 <label  class="col-sm-2 col-form-label">Contraseña</label>
+   					 <label  class="col-sm-2 col-form-label">Contraseï¿½a</label>
   					  <div class="col-sm-10">
-    				  <input type="password" class="form-control" name="txtPassword2" placeholder="Reingrese contraseña">
+    				  <input type="password" class="form-control" name="txtPassword2" placeholder="Reingrese contraseï¿½a">
    					  </div>
  				 </div>
  				 
@@ -211,7 +211,7 @@
  <script>
 function cargarLocalidades(value) {
     var seleccionProvincia = value;
-    alert("Función cargarLocalidades ejecutada con valor: " + value);
+    alert("Funciï¿½n cargarLocalidades ejecutada con valor: " + value);
     $.ajax({
         type: "POST",
         url: "ServletUbicacion",
