@@ -25,24 +25,6 @@
 <body>
 
   <%@include file="menu.jsp" %>
-<%
-
-//log("menu");
-/*
-	IDaoLocalidad loca = new DaoLocalidadImplementado();
-	ArrayList<Localidad> locas = new ArrayList<Localidad>();
-	
-	 locas = loca.leerTodasXProvincia(2);
-	 System.out.println("Aca llego al main y empieza el listado");
-	 
-	 for(Localidad item : locas){
-		 
-		 System.out.println(item.getDescripcion());
-	 }
-
-*/
-%>
-
 
 
 </body>

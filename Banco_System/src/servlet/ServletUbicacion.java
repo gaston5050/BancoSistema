@@ -36,24 +36,6 @@ public class ServletUbicacion extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	
-		log("hola");
-		System.out.println("Provincia seleccionada: " + request.getParameter("Provincia"));
-		
-		if(request.getParameter("Provincia") != null) {
-			
-			//obtengo las las localidades de la provincia seleccionada
-			ArrayList<Localidad> listadoLoca = new ArrayList<Localidad> ();
-			INegocioLocalidad loca = new NegocioLocalidadImplementado();
-			listadoLoca = loca.leerTodasXProvincia(Integer.valueOf(request.getParameter("Provincia")));
-			
-			request.setAttribute("localidadXProvincia", listadoLoca);
-			System.out.println("LLegue al servlet de ubicacion");
-			RequestDispatcher rd = request.getRequestDispatcher("altaCliente.jsp");
-			rd.forward(request, response);
-			
-			
-		}
-		
 		
 		
 		
@@ -65,6 +47,37 @@ public class ServletUbicacion extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		log("hola");
+		System.out.println("Provincia seleccionada: " + request.getParameter("Provincia"));
+		
+		if(request.getParameter("Provincia") != null) {
+			
+			
+		
+			
+			// En tu servlet ServletUbicacion
+			ArrayList<Localidad> listadoLoca = new ArrayList<Localidad>();
+			INegocioLocalidad loca = new NegocioLocalidadImplementado();
+			listadoLoca = loca.leerTodasXProvincia(Integer.valueOf(request.getParameter("Provincia")));
+			
+			StringBuilder opcionesLocalidades = new StringBuilder();
+			for (Localidad localidad : listadoLoca) {
+			    opcionesLocalidades.append("<option value=\"").append(localidad.getId()).append("\">")
+			                      .append(localidad.getDescripcion()).append("</option>");
+			}
+
+			response.getWriter().write(opcionesLocalidades.toString());
+			
+			request.setAttribute("localidadXProvincia", listadoLoca);
+			System.out.println("LLegue al servlet de ubicacion");
+		
+			
+		}
+		
+		
+		
+		
 		doGet(request, response);
 	}
 

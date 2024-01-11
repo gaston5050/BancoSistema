@@ -115,7 +115,7 @@
  				 
    					 <label  class="col-sm-2 col-form-label">Provincia </label>
   					  <div class="col-sm-10">
-								<select id="provinciaSelect" onchange="cargarLocalidades(this.value)">
+							<select id="provinciaSelect" onchange="cargarLocalidades(this.value)">
     				     					  
     				     					  
 					 <% if (request.getAttribute("ListaProvs")!= null){
@@ -140,30 +140,14 @@
    			
    				
    					   <label  class="col-sm-2 col-form-label" id= "lblSelectLocalidad">    Localidad</label>
-   					   <% if (request.getAttribute("localidadXProvincia")!= null){
-   						 %> <select  id="cboLocalidadSelect" > <%
-   						   
-   						   ArrayList<Localidad> lista =  new ArrayList<Localidad> ();
-   						   Object ob = request.getAttribute("localidadXProvincia");
-   						   lista = (ArrayList<Localidad>)ob;
-   						   Iterator it = lista.iterator();
-   						   
-   						   while(it.hasNext()){
-   							   Localidad reg = new Localidad();
-   							   reg = (Localidad)it.next();
-   							   log("mensaje de confirmacíon");
-   							  %>  <option > <%=reg.getDescripcion() %>      </option>   <%
-   							   
-   							   
-   						   }
-   						   
-   						   
-   					   }
-   						   
-   						   
-											 %>  </select><%
-   						   %>
-   					   
+   					  <% //if (request.getAttribute("localidadXProvincia") != null) { %>
+  					  <select id="cboLocalidadSelect" name="cboLocalidadSelect">
+  					  
+  					  
+  					
+  					  
+  					  </select>
+						<%// } %>
    			
    					  </div>
    					  
@@ -225,33 +209,24 @@
 
 
  <script>
-
- function cargarLocalidades(value) {
-	    var seleccionProvincia = value;
-	    console.log("Provincia seleccionada: " + value);
-
-	    // Comenté esta línea para que la llamada AJAX funcione correctamente
-	    // window.location.replace("ServletUbicacion?Provincia=" + seleccionProvincia);
-
-	    $.ajax({
-	        type: "POST",
-	        url: "ServletUbicacion",
-	        data: {
-	            Provincia: seleccionProvincia
-	        },
-	        success: function (data) {
-	            $("#cboLocalidadSelect").html(data);
-	        },
-	        error: function () {
-	            console.log("Error en la solicitud AJAX");
-	        }
-	    });
-	}
-	
-
-
- </script>
-
+function cargarLocalidades(value) {
+    var seleccionProvincia = value;
+    alert("Función cargarLocalidades ejecutada con valor: " + value);
+    $.ajax({
+        type: "POST",
+        url: "ServletUbicacion",
+        data: {
+            Provincia: seleccionProvincia
+        },
+        success: function (data) {
+            $("#cboLocalidadSelect").html(data);
+        },
+        error: function () {
+            console.log("Error en la solicitud AJAX");
+        }
+    });
+}
+</script>
 
 
 
