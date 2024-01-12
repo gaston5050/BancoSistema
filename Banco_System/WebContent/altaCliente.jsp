@@ -115,30 +115,25 @@
  				 
    					 <label  class="col-sm-2 col-form-label">Provincia </label>
   					  <div class="col-sm-10">
-							<select id="provinciaSelect" onchange="cargarLocalidades(this.value)">
-    				     					  
-    				     					  
-					 <% if (request.getAttribute("ListaProvs")!= null){
-   						   
-   						   ArrayList<Provincia> lista =  new ArrayList<Provincia> ();
-   						   Object ob = request.getAttribute("ListaProvs");
-   						   lista = (ArrayList<Provincia>)ob;
-   						  	
-   						  for(Provincia item : lista){
-   							 System.out.println("llego aca listo provs en altacliente ");
-   							 %>  <option value = "<%=item.getId() %>" > <%= item.getDescripcion()  %>  </option><%
-   							  
-   						  }
-   						  
-   						   
-   					   }
-   						   
-   						   
-   						   %>
-   					   
-											  </select>
-   			
-   						
+  					  
+					<select id="provinciaSelect" onchange='cargarLocalidades(this.value)'>
+					    <option value="0">Elija una provincia: </option>
+					    <% if (request.getAttribute("ListaProvs") != null) {
+					        ArrayList<Provincia> lista = new ArrayList<Provincia>();
+					        Object ob = request.getAttribute("ListaProvs");
+					        lista = (ArrayList<Provincia>) ob;
+					
+					        for (Provincia item : lista) {
+					    %>
+					        <option value="<%= item.getId() %>"><%= item.getDescripcion() %></option>
+					    <%  
+					        }
+					    }
+					    %>
+					</select>
+					
+					   			
+					   						
    					   <label  class="col-sm-2 col-form-label" id= "lblSelectLocalidad">    Localidad</label>
    					  <% //if (request.getAttribute("localidadXProvincia") != null) { %>
   					  <select id="cboLocalidadSelect" name="cboLocalidadSelect">
