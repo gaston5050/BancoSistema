@@ -13,12 +13,11 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/gson_lib"/>
 	<classpathentry kind="lib" path="C:/Users/gastona/Downloads/mysql-connector-j-8.1.0/mysql-connector-j-8.1.0/mysql-connector-j-8.1.0.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="WebContent/altaCliente.jsp"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/gson_lib"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

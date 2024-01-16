@@ -88,7 +88,21 @@ if(request.getParameter("Param")!= null) {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		
+		if(request.getParameter("btnAceptar")!= null) {
+			
+			Cliente reg = new Cliente();
+			reg.setNroCliente(Integer.getInteger(request.getAttribute("cantClientes")));
+			
+			System.out.println("-----------------------------");
+			reg.toString();
+			System.out.println("-----------------------------");
+					
+					
+			//reg.setApellido(reques);
+			
+			
+			
+		}
 		
 		
 		

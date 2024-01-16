@@ -2,6 +2,8 @@
 
     pageEncoding="ISO-8859-1"%>
 <%@ page import = "entidades.Provincia" %>
+<%@ page import = "entidades.Cliente" %>
+
 <%@ page import = "entidades.Localidad" %>
 
 <%@ page import= "java.util.ArrayList" %>
@@ -36,7 +38,7 @@
   	<div class="container p-4">
 				
 		
-		<form method= "post" action="ServletUbicacion" class="col-md-6 offset-md-3  ">
+		<form method= "post" action="ServletCliente" class="col-md-6 offset-md-3  ">
   			
   				
   			<div class="col-auto">
@@ -45,32 +47,25 @@
   				 
    					 <label  class="col-sm-2 col-form-label">Cliente</label>
    					 
-   					 <div class="col-sm-10">
-						  <div class="dropdown">
-							  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-							    Dropdown link
-							  </a>
-							
-							 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-							    <li><a class="dropdown-item" href="#">Action</a></li>
-							    <li><a class="dropdown-item" href="#">Another action</a></li>
-							    <li><a class="dropdown-item" href="#">Something else here</a></li>
-						 	 </ul>
-						 	</div>
-						</div>
+   						 <div class="col-sm-10">
+   						 <% int cant = Cliente.getCantidadClientes() + 1;  %>
+   							 <label  class="col-sm-2 col-form-label"><%= cant %></label>
+   							<% request.setAttribute(String.valueOf(cant), "cantClientes");  %>
+   							 
+   						</div>	
  				 </div>
   				
    				 <div class="form-group row ">
    					 <label  class="col-sm-2 col-form-label">DNI</label>
   					  <div class="col-sm-10">
-    				  <input type="text" class="form-control" name="txtDni" placeholder="Ingrese DNI.">
+    				  <input type="text" class="form-control" name="txtDni" placeholder="Ingrese DNI." minlength = "8" maxlength = "8" required>
    					  </div>
  				 </div>
  				 
  				 <div class="form-group row ">
    					 <label  class="col-sm-2 col-form-label">CUIL</label>
   					  <div class="col-sm-10">
-    				  <input type="text" class="form-control" name="txtCuil" placeholder="Ingrese Cuil.">
+    				  <input type="text" class="form-control" name="txtCuil" minlength = "10" maxlength = "10" required placeholder="Ingrese Cuil(Sin guiones - ) ">
    					  </div>
  				 </div>
  				 <div class="form-group row ">
@@ -157,33 +152,33 @@
  				 
  				 
  				 <div class="form-group row ">
-   					 <label  class="col-sm-2 col-form-label">Usuario</label>
+   					 <label  class="col-sm-2 col-form-label">Direccion</label>
   					  <div class="col-sm-10">
-    				  <input type="text" class="form-control" name="txtIdUsuario" placeholder="Ingrese usuario.">
+    				  <input type="text" class="form-control" name="txtDireccion" placeholder="Ingrese direccion.">
    					  </div>
  				 </div>
  				 <div class="form-group row ">
-   					 <label  class="col-sm-2 col-form-label">Usuario</label>
+   					 <label  class="col-sm-2 col-form-label">Email</label>
   					  <div class="col-sm-10">
-    				  <input type="text" class="form-control" name="txtIdUsuario" placeholder="Ingrese usuario.">
+    				  <input type="text" class="form-control" name="txtEmail" placeholder="Ingrese email.">
    					  </div>
  				 </div>
  				 
  				  <div class="form-group row">
-   					 <label  class="col-sm-2 col-form-label">Contrase�a</label>
+   					 <label  class="col-sm-2 col-form-label">Celular</label>
   					  <div class="col-sm-10">
-    				  <input type="password" class="form-control" name="txtPassword" placeholder="Contrase�a">
+    				  <input type="text" class="form-control" name="txtCelular" placeholder="Ingrese Celular">
    					  </div>
  				 </div>
  				   <div class="form-group row">
-   					 <label  class="col-sm-2 col-form-label">Contrase�a</label>
+   					 <label  class="col-sm-2 col-form-label">Telefono</label>
   					  <div class="col-sm-10">
-    				  <input type="password" class="form-control" name="txtPassword2" placeholder="Reingrese contrase�a">
+    				  <input type="text" class="form-control" name="txtTelefono" placeholder="Ingrese telefono.">
    					  </div>
  				 </div>
  				 
  				 <div class="form-check form-switch">
-					  <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+					  <input class="form-check-input" type="checkbox" id="esAdmin">
 					  <label class="form-check-label" for="flexSwitchCheckDefault">Administrador</label>
 					 
 				 </div>

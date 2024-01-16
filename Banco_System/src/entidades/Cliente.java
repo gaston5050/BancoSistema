@@ -1,5 +1,9 @@
 package entidades;
+import java.util.ArrayList;
 import java.util.Date;
+
+import dao.IDaoCliente;
+import daoImplementado.DaoClienteImplementado;
 public class Cliente {
 	
 	private int nroCliente;
@@ -17,7 +21,21 @@ public class Cliente {
 	private String telefonoFijo;
 	private String celular;
 	private boolean estado;
+	static public int cantidadClientes = Cliente.cantClientes();
 	
+	
+	
+	
+	public static int getCantidadClientes() {
+		return cantidadClientes;
+	}
+
+
+	public static void setCantidadClientes(int cantidadClientes) {
+		Cliente.cantidadClientes = cantidadClientes;
+	}
+
+
 	public Cliente() {
 	
 		
@@ -35,13 +53,14 @@ public class Cliente {
 		this.telefonoFijo="";
 		this.celular = "";
 		this.estado = false;
+		
 	}
 	
 	
-	public Cliente(int nroCliente, String dni, String cuil, String nombre, String apellido, String sexo,
+	public Cliente( String dni, String cuil, String nombre, String apellido, String sexo,
 			String nacionalidad, Date fechaNac, int idLocalidad, int idProvincia, String direccion, String email, String telefonoFijo, String celular) {
 		super();
-		this.nroCliente = nroCliente;
+		
 		this.dni = dni;
 		this.cuil = cuil;
 		this.nombre = nombre;
@@ -58,6 +77,19 @@ public class Cliente {
 		this.estado = false;
 	}
 	
+	public static int cantClientes() {
+		System.out.println("Llego a la funcion que cuenta clientes");
+		int cantidad = 0;
+		IDaoCliente idc = new DaoClienteImplementado();
+		ArrayList <Cliente> listado = new ArrayList<Cliente>();
+		listado = idc.leerTodos();
+		
+		cantidad = listado.size();
+		
+		
+		
+		return cantidad;
+	}
 	
 	public String getTelefonoFijo() {
 		return telefonoFijo;
