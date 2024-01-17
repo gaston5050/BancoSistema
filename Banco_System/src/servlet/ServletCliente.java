@@ -91,7 +91,10 @@ if(request.getParameter("Param")!= null) {
 		if(request.getParameter("btnAceptar")!= null) {
 			
 			Cliente reg = new Cliente();
-			reg.setNroCliente(Integer.getInteger(request.getAttribute("cantClientes")));
+			
+			System.out.println(request.getParameter("canti"));
+			
+			//reg.setNroCliente((int)request.getAttribute("cantClientes").toString());
 			
 			System.out.println("-----------------------------");
 			reg.toString();

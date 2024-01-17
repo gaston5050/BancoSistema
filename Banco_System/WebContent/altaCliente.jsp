@@ -49,8 +49,17 @@
    					 
    						 <div class="col-sm-10">
    						 <% int cant = Cliente.getCantidadClientes() + 1;  %>
+   						 <%
+
+   						System.out.println("*********************");
+   						 System.out.println(cant);
+   						System.out.println("*********************");
+   						
+   						 
+   						 
+   						 %>
    							 <label  class="col-sm-2 col-form-label"><%= cant %></label>
-   							<% request.setAttribute(String.valueOf(cant), "cantClientes");  %>
+   							 <input type="hidden" name= "canti" value = <%= cant %> >	
    							 
    						</div>	
  				 </div>
