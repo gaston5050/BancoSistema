@@ -1,6 +1,11 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -93,14 +98,51 @@ if(request.getParameter("Param")!= null) {
 			Cliente reg = new Cliente();
 			
 			System.out.println(request.getParameter("canti"));
+			reg.setNroCliente(Integer.valueOf(request.getParameter("canti")));
+			reg.setDni(request.getParameter("txtDni"));
+			reg.setCuil(request.getParameter("txtCuil"));
+			reg.setNombre(request.getParameter("txtNombre"));
+			reg.setApellido(request.getParameter("txtApellido"));
+			reg.setSexo(request.getParameter("txtSexo").equals("m")? "M": "F");
+			reg.setNacionalidad(request.getParameter("txtNacionalidad"));
 			
-			//reg.setNroCliente((int)request.getAttribute("cantClientes").toString());
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+			String fecha = request.getParameter("dtpFechaNacimiento");
+			
+			Date parsed;
+			try {
+				parsed = (Date) format.parse(fecha);
+				reg.setFechaNac(parsed);
+				
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+							
+			reg.setIdProvincia(Integer.valueOf(request.getParameter("provinciaSelect")));			
+			reg.setIdLocalidad(Integer.valueOf(request.getParameter("cboLocalidadSelect")));
+			reg.setDireccion(request.getParameter("txtDireccion"));
+			reg.setEmail(request.getParameter("txtEmail"));
+			reg.setCelular(request.getParameter("txtCelular"));
+			reg.setTelefonoFijo(request.getParameter("txtTelefono"));
+			reg.setEstado(Boolean.valueOf(request.getParameter("esAdmin")));
+			
 			
 			System.out.println("-----------------------------");
 			reg.toString();
 			System.out.println("-----------------------------");
-					
-					
+			INegocioCliente neg = new NegocioClienteImplementado();
+			if(neg.insertarCliente(reg)) {
+				
+				log("sssssssssssssssssiiiiiiiiiiiii");
+				
+				
+			}
+			else {
+				
+				log("nooooooooooooooooooooooooooo");
+				
+			}
 			//reg.setApellido(reques);
 			
 			

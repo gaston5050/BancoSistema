@@ -91,12 +91,25 @@
  				 </div>
  				 <div class="form-group row ">
    					 <label  class="col-sm-2 col-form-label">Sexo</label>
+   					 
+   					 
+   					 
+   					 
+   					 
+   					 
   					  <div class="col-sm-10">
-    				  <input type="text" class="form-control" name="txtSexo" placeholder="Ingrese Sexo.">
+  					  
+  					  	<fieldset>
+  					  		
+  					  		<input type = "radio" name= "rdSexo" value= "m"> Masculino 
+							<input type = "radio" name= "rdSexo" value= "f"> Femenino
+  					  		
+  					  	</fieldset>
+    				
    					  </div>
  				 </div>
  				 <div class="form-group row ">
-   					 <label  class="col-sm-2 col-form-label">Nacionalidad</label>
+   					 <label  class="col-sm-2 col-form-label">Nacionalidad</label>www
   					  <div class="col-sm-10">
     				  <input type="text" class="form-control" name="txtNacionalidad" placeholder="Ingrese nacionalidad.">
    					  </div>
@@ -104,7 +117,8 @@
  				 <div class="form-group row ">
    					 <label  class="col-sm-2 col-form-label">Fecha de Nacimiento</label>
   					  <div class="col-sm-10">
-    				 <input type="date" name="dtpFechaNacimiento"></input>
+    				 <input type="date" name="dtpFechaNacimiento" id= "dtpFechaNacimiento"onchange="showSelectedDate()" ></input>
+    				
    					  </div>
  				 </div>
  				 
@@ -140,7 +154,7 @@
 					   						
    					   <label  class="col-sm-2 col-form-label" id= "lblSelectLocalidad">    Localidad</label>
    					  <% //if (request.getAttribute("localidadXProvincia") != null) { %>
-  					  <select id="cboLocalidadSelect" name="cboLocalidadSelect">
+  					  <select id="cboLocalidadSelect" name="cboLocalidadSelect" >
   					  
   					  
   					
@@ -226,6 +240,17 @@ function cargarLocalidades(value) {
     });
 }
 </script>
+
+<script>
+        function showSelectedDate() {
+            // Obtén la fecha seleccionada desde el input
+            var fechaSeleccionada = document.getElementById('dtpFechaNacimiento').value;
+
+            // Muestra la fecha seleccionada usando un alert
+            alert('Fecha Seleccionada: ' + fechaSeleccionada);
+        }
+    </script>
+
 
 
 
