@@ -3,6 +3,8 @@ package daoImplementado;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -34,7 +36,14 @@ public class DaoClienteImplementado implements IDaoCliente {
 			statement.setString(4, cliente.getApellido());
 			statement.setString(5, cliente.getSexo());
 			statement.setString(6,cliente.getNacionalidad());
-			statement.setDate(7, (java.sql.Date)cliente.getFechaNac());
+			
+			LocalDate fecha = cliente.getFechaNac();
+			DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MMM-dd");
+			String fechaFormateada = fecha.format(formato);
+			LocalDate parseada = LocalDate.parse(fechaFormateada, formato);
+			java.sql.Date fechaSql = java.sql.Date.valueOf(parseada);
+			
+			statement.setDate(7, fechaSql);
 			statement.setInt(8, cliente.getIdLocalidad());
 			statement.setInt(9, cliente.getIdProvincia());
 			statement.setString(10, cliente.getDireccion());
@@ -93,7 +102,7 @@ public class DaoClienteImplementado implements IDaoCliente {
 					auxiliar.setNombre(resultSet.getString("nombre"));
 					auxiliar.setSexo(resultSet.getString("sexo"));
 					auxiliar.setNacionalidad(resultSet.getString("nacionalidad"));
-					auxiliar.setFechaNac(resultSet.getDate("fechanacimiento"));
+					auxiliar.setFechaNac(resultSet.getDate("fechanacimiento").toLocalDate());
 					auxiliar.setIdLocalidad(resultSet.getInt("idlocalidad"));
 					auxiliar.setIdProvincia(resultSet.getInt("idProvincia"));
 					auxiliar.setDireccion(resultSet.getString("direccion"));

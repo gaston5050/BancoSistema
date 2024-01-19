@@ -1,4 +1,5 @@
 package entidades;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -13,7 +14,7 @@ public class Cliente {
 	private String apellido;
 	private String sexo;
 	private String nacionalidad;
-	private Date fechaNac;
+	private LocalDate fechaNac;
 	private int idLocalidad;
 	private int idProvincia;
 	private String direccion;
@@ -26,6 +27,16 @@ public class Cliente {
 	
 	
 	
+	public LocalDate getFechaNac() {
+		return fechaNac;
+	}
+
+
+	public void setFechaNac(LocalDate fechaNac) {
+		this.fechaNac = fechaNac;
+	}
+
+
 	public static int getCantidadClientes() {
 		return cantidadClientes;
 	}
@@ -45,7 +56,7 @@ public class Cliente {
 		this.apellido = "";
 		this.sexo = "";
 		this.nacionalidad = "";
-		this.fechaNac = new Date() ;
+		//this.fechaNac;
 		this.idLocalidad = 1;
 		this.idProvincia = 1;
 		this.direccion = "";
@@ -67,7 +78,7 @@ public class Cliente {
 		this.apellido = apellido;
 		this.sexo = sexo;
 		this.nacionalidad = nacionalidad;
-		this.fechaNac = fechaNac;
+		//this.fechaNac = fechaNac;
 		this.idLocalidad = idLocalidad;
 		this.idProvincia = idProvincia;
 		this.direccion = direccion;
@@ -163,12 +174,7 @@ public class Cliente {
 	public void setNacionalidad(String nacionalidad) {
 		this.nacionalidad = nacionalidad;
 	}
-	public Date getFechaNac() {
-		return fechaNac;
-	}
-	public void setFechaNac(Date fechaNac) {
-		this.fechaNac = fechaNac;
-	}
+	
 	public int getIdLocalidad() {
 		return idLocalidad;
 	}

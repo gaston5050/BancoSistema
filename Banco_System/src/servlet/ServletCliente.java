@@ -103,22 +103,16 @@ if(request.getParameter("Param")!= null) {
 			reg.setCuil(request.getParameter("txtCuil"));
 			reg.setNombre(request.getParameter("txtNombre"));
 			reg.setApellido(request.getParameter("txtApellido"));
-			reg.setSexo(request.getParameter("txtSexo").equals("m")? "M": "F");
+			reg.setSexo("Pala");
+		//	reg.setSexo(request.getParameter("txtSexo").equals("m")? "M": "F");
 			reg.setNacionalidad(request.getParameter("txtNacionalidad"));
+		
+			 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MMM-dd");
+			 LocalDate dt = LocalDate.parse(request.getParameter("dtpFechaNacimiento"), dtf);
+
 			
-			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-			String fecha = request.getParameter("dtpFechaNacimiento");
-			
-			Date parsed;
-			try {
-				parsed = (Date) format.parse(fecha);
-				reg.setFechaNac(parsed);
-				
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-							
+			reg.setFechaNac(dt);
+		
 			reg.setIdProvincia(Integer.valueOf(request.getParameter("provinciaSelect")));			
 			reg.setIdLocalidad(Integer.valueOf(request.getParameter("cboLocalidadSelect")));
 			reg.setDireccion(request.getParameter("txtDireccion"));
@@ -132,6 +126,7 @@ if(request.getParameter("Param")!= null) {
 			reg.toString();
 			System.out.println("-----------------------------");
 			INegocioCliente neg = new NegocioClienteImplementado();
+			
 			if(neg.insertarCliente(reg)) {
 				
 				log("sssssssssssssssssiiiiiiiiiiiii");
@@ -147,12 +142,12 @@ if(request.getParameter("Param")!= null) {
 			
 			
 			
+		
+		
+		
+		
+		
 		}
-		
-		
-		
-		
-		
 		
 		
 		
