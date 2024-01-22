@@ -37,12 +37,9 @@ public class DaoClienteImplementado implements IDaoCliente {
 			statement.setString(5, cliente.getSexo());
 			statement.setString(6,cliente.getNacionalidad());
 			
-			LocalDate fecha = cliente.getFechaNac();
-			DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MMM-dd");
-			String fechaFormateada = fecha.format(formato);
-			LocalDate parseada = LocalDate.parse(fechaFormateada, formato);
-			java.sql.Date fechaSql = java.sql.Date.valueOf(parseada);
 			
+	        java.sql.Date fechaSql = java.sql.Date.valueOf(cliente.getFechaNac());
+
 			statement.setDate(7, fechaSql);
 			statement.setInt(8, cliente.getIdLocalidad());
 			statement.setInt(9, cliente.getIdProvincia());

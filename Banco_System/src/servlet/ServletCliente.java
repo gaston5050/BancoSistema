@@ -103,11 +103,11 @@ if(request.getParameter("Param")!= null) {
 			reg.setCuil(request.getParameter("txtCuil"));
 			reg.setNombre(request.getParameter("txtNombre"));
 			reg.setApellido(request.getParameter("txtApellido"));
-			reg.setSexo("Pala");
-		//	reg.setSexo(request.getParameter("txtSexo").equals("m")? "M": "F");
+			
+			reg.setSexo(request.getParameter("rdSexo"));
 			reg.setNacionalidad(request.getParameter("txtNacionalidad"));
 		
-			 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MMM-dd");
+			 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 			 LocalDate dt = LocalDate.parse(request.getParameter("dtpFechaNacimiento"), dtf);
 
 			
@@ -123,7 +123,7 @@ if(request.getParameter("Param")!= null) {
 			
 			
 			System.out.println("-----------------------------");
-			reg.toString();
+			System.out.println(reg.toString());
 			System.out.println("-----------------------------");
 			INegocioCliente neg = new NegocioClienteImplementado();
 			
@@ -131,6 +131,7 @@ if(request.getParameter("Param")!= null) {
 				
 				log("sssssssssssssssssiiiiiiiiiiiii");
 				
+				request.setAttribute("mensaje", "paso ok");
 				
 			}
 			else {
@@ -138,10 +139,13 @@ if(request.getParameter("Param")!= null) {
 				log("nooooooooooooooooooooooooooo");
 				
 			}
-			//reg.setApellido(reques);
+		
 			
 			
 			
+			
+			RequestDispatcher rd = request.getRequestDispatcher("/altaCliente.jsp");
+			rd.forward(request, response);
 		
 		
 		

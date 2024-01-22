@@ -101,15 +101,15 @@
   					  
   					  	<fieldset>
   					  		
-  					  		<input type = "radio" name= "rdSexo" value= "m"> Masculino 
-							<input type = "radio" name= "rdSexo" value= "f"> Femenino
+  					  		<input type = "radio" name= "rdSexo" value= "1"> Masculino 
+							<input type = "radio" name= "rdSexo" value= "0"> Femenino
   					  		
   					  	</fieldset>
     				
    					  </div>
  				 </div>
  				 <div class="form-group row ">
-   					 <label  class="col-sm-2 col-form-label">Nacionalidad</label>www
+   					 <label  class="col-sm-2 col-form-label">Nacionalidad</label>
   					  <div class="col-sm-10">
     				  <input type="text" class="form-control" name="txtNacionalidad" placeholder="Ingrese nacionalidad.">
    					  </div>
@@ -134,7 +134,7 @@
    					 <label  class="col-sm-2 col-form-label">Provincia </label>
   					  <div class="col-sm-10">
   					  
-					<select id="provinciaSelect" onchange='cargarLocalidades(this.value)'>
+					<select id="provinciaSelect" name ="provinciaSelect"  onchange='cargarLocalidades(this.value)'>
 					    <option value="0">Elija una provincia: </option>
 					    <% if (request.getAttribute("ListaProvs") != null) {
 					        ArrayList<Provincia> lista = new ArrayList<Provincia>();
@@ -200,11 +200,7 @@
    					  </div>
  				 </div>
  				 
- 				 <div class="form-check form-switch">
-					  <input class="form-check-input" type="checkbox" id="esAdmin">
-					  <label class="form-check-label" for="flexSwitchCheckDefault">Administrador</label>
-					 
-				 </div>
+ 			
  				 
    				<div class="d-grid gap-2 d-md-flex justify-content-md-end">
   					
@@ -219,7 +215,18 @@
 
 
 	</div>
+<script>
 
+
+
+	<%if(request.getAttribute("mensaje")!= null){%>
+		
+		console.log('jjjjjjjjjjjjjjjjjjjjjjjjjj');
+		console.log("jjjjjjjjjjjjjjjjjjjjjjjjjj");
+		alert('<%= request.getAttribute("mensaje")%>');
+	<%}%>
+
+</script>
 
  <script>
 function cargarLocalidades(value) {
