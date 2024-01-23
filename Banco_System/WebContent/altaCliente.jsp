@@ -48,7 +48,8 @@
    					 <label  class="col-sm-2 col-form-label">Cliente</label>
    					 
    						 <div class="col-sm-10">
-   						 <% int cant = Cliente.getCantidadClientes() + 1;  %>
+   						 <% int cant =0;
+   						    cant = Cliente.getCantidadClientes() + 1;  %>
    						 <%
 
    						System.out.println("*********************");
@@ -221,8 +222,8 @@
 
 	<%if(request.getAttribute("mensaje")!= null){%>
 		
-		console.log('jjjjjjjjjjjjjjjjjjjjjjjjjj');
-		console.log("jjjjjjjjjjjjjjjjjjjjjjjjjj");
+		
+			console.log("jjjjjjjjjjjjjjjjjjjjjjjjjj");
 		alert('<%= request.getAttribute("mensaje")%>');
 	<%}%>
 

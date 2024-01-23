@@ -63,7 +63,7 @@ if(request.getParameter("Param")!= null) {
 		
 			
 			if (request.getParameter("Param").equals("AltaCliente")) {
-			System.out.println("llego a alta");
+				System.out.println("llego a alta");
 			
 			 INegocioProvincia provincias = new NegocioProvinciaImplementado();
 			 ArrayList<Provincia> provs = provincias.leerTodas();
@@ -130,6 +130,10 @@ if(request.getParameter("Param")!= null) {
 			if(neg.insertarCliente(reg)) {
 				
 				log("sssssssssssssssssiiiiiiiiiiiii");
+				 INegocioProvincia provincias = new NegocioProvinciaImplementado();
+				 ArrayList<Provincia> provs = provincias.leerTodas();
+				 
+				 request.setAttribute("ListaProvs", provs);	 
 				
 				request.setAttribute("mensaje", "paso ok");
 				
