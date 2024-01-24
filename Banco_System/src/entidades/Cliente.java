@@ -22,7 +22,7 @@ public class Cliente {
 	private String telefonoFijo;
 	private String celular;
 	private boolean estado;
-	static public int cantidadClientes = Cliente.cantClientes();
+	static public int cantidadClientes = 0;
 	
 	
 	
@@ -38,6 +38,7 @@ public class Cliente {
 
 
 	public static int getCantidadClientes() {
+		cantidadClientes =  Cliente.cantClientes();
 		return cantidadClientes;
 	}
 
