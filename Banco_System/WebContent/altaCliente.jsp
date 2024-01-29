@@ -232,7 +232,7 @@
  <script>
 function cargarLocalidades(value) {
     var seleccionProvincia = value;
-    alert("Funci�n cargarLocalidades ejecutada con valor: " + value);
+    alert("Funcion cargarLocalidades ejecutada con valor: " + value);
     $.ajax({
         type: "POST",
         url: "ServletUbicacion",

@@ -4,6 +4,8 @@
 <%@ page import= "daoImplementado.DaoLocalidadImplementado" %>
 <%@ page import = "entidades.Localidad" %>
 
+<%@ page import= "negocioImplementado.NegocioClienteImplementado" %>
+
 <%@ page import= "java.util.ArrayList" %>
 
 <%@ page import= "daoImplementado.DaoProvinciaImplementado" %>
@@ -25,7 +27,23 @@
 <body>
 
   <%@include file="menu.jsp" %>
-
+<%
+NegocioClienteImplementado x = new NegocioClienteImplementado ();
+nt [] vector = new int[5];
+try
+{
+	vector[0]=10;
+	vector[1]=35;
+	vector[2]=40;
+	vector[3]=50;
+	vector[4]=30;
+	vector[5]=30;
+}
+	catch (Exception_DNI e){
+		
+		
+	}
+%>
 
 </body>
 </html>

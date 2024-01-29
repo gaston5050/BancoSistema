@@ -133,7 +133,7 @@ if(request.getParameter("Param")!= null) {
 				 INegocioProvincia provincias = new NegocioProvinciaImplementado();
 				 ArrayList<Provincia> provs = provincias.leerTodas();
 				 
-				 request.setAttribute("ListaProvs", provs);	 
+				request.setAttribute("ListaProvs", provs);	 
 				
 				request.setAttribute("mensaje", "paso ok");
 				

@@ -7,6 +7,7 @@ import dao.IDaoUsuario;
 import daoImplementado.DaoClienteImplementado;
 import daoImplementado.DaoUsuarioImplementado;
 import entidades.Cliente;
+import excepciones.Exception_DNI;
 import negocio.INegocioCliente;
 
 public class NegocioClienteImplementado implements INegocioCliente {
@@ -38,6 +39,19 @@ public class NegocioClienteImplementado implements INegocioCliente {
 		
 		
 		return estado;
+	}
+
+
+
+	@Override
+	public void VerificaDni(String dni) throws Exception_DNI {
+		
+			if(dni.equals("1")) {
+				
+				
+				throw new Exception_DNI();
+			}
+		
 	}
 	
 	
