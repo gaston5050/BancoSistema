@@ -44,6 +44,16 @@ public class ServletCliente extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
+		
+		if(request.getParameter("Modificar")!= null) {
+			
+			System.out.print("llegue a modificar Mostro!");
+			
+		}
+		
+		
+		
+		
 if(request.getParameter("Param")!= null) {
 			
 			if (request.getParameter("Param").equals("ListarClientes")){
@@ -92,6 +102,14 @@ if(request.getParameter("Param")!= null) {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+
+
+		
+		
+		
+		
+		
 		
 		if(request.getParameter("btnAceptar")!= null) {
 			

@@ -56,13 +56,15 @@
 										<td> <%= item.getNombre()%></td>
 										<td> <%=item.getApellido() %></td>
 										<%if(item.isEstado()) {%><td class="text-success"> ACTIVO </td><%} else {%> <td class="text-danger">INACTIVO</td> <%} %> 
-										<form action ="ServletCliente.jsp" method = "post">
+										
 										<td><input type= "submit" name = "btnBaja" value= "Baja" class="btn btn-danger" /></td>
-										<td><input type= "submit" name = "btnModificar" value= "Modificar" class="btn btn-warning" /></td>
+										
+										<td><a href="ServletCliente?Modificar=<%=item.getDni() %>" class="btn btn-warning" >Modificar </a></td>
+										
 										<td><input type= "submit" name = "btnDatos" value= "Datos" class="btn btn-info" /></td>
 										<td><input type= "submit" name = "btnMovimientos" value= "Movimientos" class="btn btn-primary" /></td>
 										<td><input type= "submit" name = "btnPrestamos" value= "Prestamos" class="btn btn-success" /></td>
-										</form>
+									
 									</tr>
 									
 								</tbody>		
