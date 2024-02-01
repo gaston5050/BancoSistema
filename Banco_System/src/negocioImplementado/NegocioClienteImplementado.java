@@ -53,6 +53,16 @@ public class NegocioClienteImplementado implements INegocioCliente {
 			}
 		
 	}
+
+
+
+	@Override
+	public Cliente getSingle(String dni) {
+		IDaoCliente dao = new DaoClienteImplementado ();
+		Cliente cli = dao.getSingle(dni);
+		
+		return cli;
+	}
 	
 	
 }

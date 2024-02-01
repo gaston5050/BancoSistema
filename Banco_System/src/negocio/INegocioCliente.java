@@ -13,4 +13,6 @@ public interface INegocioCliente {
 	public boolean insertarCliente(Cliente cliente);
 	public void VerificaDni(String dni) throws Exception_DNI;
 	
+	public Cliente getSingle(String dni);
+	
 	}

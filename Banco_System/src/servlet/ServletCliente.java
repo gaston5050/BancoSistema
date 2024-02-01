@@ -49,6 +49,14 @@ public class ServletCliente extends HttpServlet {
 			
 			System.out.print("llegue a modificar Mostro!");
 			
+			INegocioCliente nego = new NegocioClienteImplementado();
+			Cliente cli = nego.getSingle(request.getParameter("Modificar"));
+			request.setAttribute("Registro", cli);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("/listarClientes.jsp");
+			rd.forward(request, response);
+			
+			
 		}
 		
 		

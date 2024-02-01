@@ -17,7 +17,7 @@ public class DaoClienteImplementado implements IDaoCliente {
 
 	private static final String LeerTodos = "select nroCliente, dni, cuil, nombre, apellido, sexo, nacionalidad, fechanacimiento, idlocalidad, idprovincia, direccion, email, celular, telefonofijo, estado from clientes";	
 	private static final String InsertarCliente = "insert into clientes (dni, cuil, nombre, apellido, sexo, nacionalidad, fechanacimiento, idlocalidad, idprovincia, direccion, email, celular, telefonofijo, estado) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-	
+	private static final String ObtenerRegistro = "select nroCliente, dni, cuil, nombre, apellido, sexo, nacionalidad, fechanacimiento, idlocalidad, idprovincia, direccion, email, celular, telefonofijo, estado from clientes where dni like  ?";
 	@Override
 	public boolean insertarCliente(Cliente cliente) {
 		
@@ -121,6 +121,50 @@ public class DaoClienteImplementado implements IDaoCliente {
 		
 	
 		return listado;
+	}
+
+
+
+
+
+	@Override
+	public Cliente getSingle(String DNI) {
+		
+		
+		PreparedStatement statement;
+		ResultSet resultSet;
+		
+		Cliente reg = new Cliente();
+	
+		Connection connection = Conexion.getConnection().getSQLConexion();
+		
+		
+		try {
+			
+			statement = connection.prepareStatement(ObtenerRegistro);
+			statement.setString(1, DNI);
+			resultSet = statement.executeQuery();
+			
+			
+				while(resultSet.next()) {
+					
+					
+					Cliente auxiliar = new Cliente();
+					
+					auxiliar.setNroCliente(resultSet.getInt("nroCliente"));
+				}
+				
+		}
+		catch (Exception e)	{
+			
+			e.printStackTrace();
+		
+		}
+		System.out.print("-------nombre---------");
+		System.out.print(reg.getApellido());
+		System.out.print("-------nombre---------");
+		
+		return reg;
 	}
 	
 
