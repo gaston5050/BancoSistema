@@ -45,15 +45,17 @@ public class ServletCliente extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		
+		
 		if(request.getParameter("Modificar")!= null) {
+			
 			
 			System.out.print("llegue a modificar Mostro!");
 			
 			INegocioCliente nego = new NegocioClienteImplementado();
 			Cliente cli = nego.getSingle(request.getParameter("Modificar"));
-			request.setAttribute("Registro", cli);
+			request.setAttribute("A_modificar", cli);
 			
-			RequestDispatcher rd = request.getRequestDispatcher("/listarClientes.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/altaCliente.jsp");
 			rd.forward(request, response);
 			
 			

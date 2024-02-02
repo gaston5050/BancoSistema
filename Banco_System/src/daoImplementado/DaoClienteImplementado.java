@@ -134,7 +134,8 @@ public class DaoClienteImplementado implements IDaoCliente {
 		PreparedStatement statement;
 		ResultSet resultSet;
 		
-		Cliente reg = new Cliente();
+		
+		Cliente auxiliar = new Cliente();
 	
 		Connection connection = Conexion.getConnection().getSQLConexion();
 		
@@ -148,8 +149,24 @@ public class DaoClienteImplementado implements IDaoCliente {
 			
 				while(resultSet.next()) {
 					
+					//dni, cuil, nombre, apellido, sexo, nacionalidad, fechanacimiento, idlocalidad, idprovincia, direccion, email, celular, telefonofijo, estado
+					auxiliar.setNroCliente(resultSet.getInt("nroCliente"));
+					auxiliar.setDni(resultSet.getString("dni"));
+					auxiliar.setCuil(resultSet.getString("cuil"));
+					auxiliar.setApellido(resultSet.getString("apellido"));
+					auxiliar.setNombre(resultSet.getString("nombre"));
+					auxiliar.setSexo(resultSet.getString("sexo"));
+					auxiliar.setNacionalidad(resultSet.getString("nacionalidad"));
+					auxiliar.setFechaNac(resultSet.getDate("fechanacimiento").toLocalDate());
+					auxiliar.setIdLocalidad(resultSet.getInt("idlocalidad"));
+					auxiliar.setIdProvincia(resultSet.getInt("idProvincia"));
+					auxiliar.setDireccion(resultSet.getString("direccion"));
+					auxiliar.setEmail(resultSet.getString("email"));
+					auxiliar.setCelular(resultSet.getString("celular"));
+					auxiliar.setTelefonoFijo(resultSet.getString("telefonoFijo"));
+					auxiliar.setEstado(resultSet.getBoolean("estado"));
 					
-					Cliente auxiliar = new Cliente();
+				
 					
 					auxiliar.setNroCliente(resultSet.getInt("nroCliente"));
 				}
@@ -160,11 +177,16 @@ public class DaoClienteImplementado implements IDaoCliente {
 			e.printStackTrace();
 		
 		}
+		
+		
+		
+		
+		
 		System.out.print("-------nombre---------");
-		System.out.print(reg.getApellido());
+		System.out.print(auxiliar.getApellido());
 		System.out.print("-------nombre---------");
 		
-		return reg;
+		return auxiliar;
 	}
 	
 

@@ -35,9 +35,10 @@
   			
   				<%
   				
-  				if(request.getAttribute("Registro")!= null){
+  				if(request.getAttribute("A_modificar")!= null){
   					
   					System.out.println("-/*--*-*-*-*-*- Volvi de alguna manera -*-*-*-*-*-*-*");
+  					
   					System.out.println(request.getAttribute("Registro"));
   					System.out.println("-/*--*-*-*-*-*-  si si ssi sisi sis sisis  -*-*-*-*-*-*-*");
   				}

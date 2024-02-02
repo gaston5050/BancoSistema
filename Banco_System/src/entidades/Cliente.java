@@ -7,6 +7,11 @@ import dao.IDaoCliente;
 import daoImplementado.DaoClienteImplementado;
 public class Cliente {
 	
+	@Override
+	public String toString() {
+		
+		return  "Nombre: "+nombre + ", Apellido: " + apellido;
+	}
 	private int nroCliente;
 	private String dni;
 	private String cuil;
