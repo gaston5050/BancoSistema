@@ -34,13 +34,11 @@
 		<form method= "post" action="ServletCliente" class="col-md-6 offset-md-3  ">
   			
   				<%
-  				
+  				Cliente cli = null;
   				if(request.getAttribute("A_modificar")!= null){
   					
-  					System.out.println("-/*--*-*-*-*-*- Volvi de alguna manera -*-*-*-*-*-*-*");
+  					cli = (Cliente)request.getAttribute("A_modificar");
   					
-  					System.out.println(request.getAttribute("Registro"));
-  					System.out.println("-/*--*-*-*-*-*-  si si ssi sisi sis sisis  -*-*-*-*-*-*-*");
   				}
   				
   				%>
@@ -71,26 +69,26 @@
    				 <div class="form-group row ">
    					 <label  class="col-sm-2 col-form-label">DNI</label>
   					  <div class="col-sm-10">
-    				  <input type="text" class="form-control" name="txtDni" placeholder="Ingrese DNI." minlength = "8" maxlength = "8" required>
+    				  <input type="text" class="form-control" name="txtDni" placeholder="Ingrese DNI." minlength = "8" maxlength = "8" required <%if(cli != null){%> value = <%=cli.getDni() %> <% } %>>
    					  </div>
  				 </div>
  				 
  				 <div class="form-group row ">
    					 <label  class="col-sm-2 col-form-label">CUIL</label>
   					  <div class="col-sm-10">
-    				  <input type="text" class="form-control" name="txtCuil" minlength = "10" maxlength = "10" required placeholder="Ingrese Cuil(Sin guiones - ) ">
+    				  <input type="text" class="form-control" name="txtCuil" minlength = "10" maxlength = "10" required placeholder="Ingrese Cuil(Sin guiones - ) " <%if(cli != null){%> value = <%=cli.getCuil() %> <% } %>>
    					  </div>
  				 </div>
  				 <div class="form-group row ">
    					 <label  class="col-sm-2 col-form-label">Nombre</label>
   					  <div class="col-sm-10">
-    				  <input type="text" class="form-control" name="txtNombre" placeholder="Ingrese nombre.">
+    				  <input type="text" class="form-control" name="txtNombre" placeholder="Ingrese nombre." <%if(cli != null){%> value = <%=cli.getNombre() %> <% } %>>
    					  </div>
  				 </div>
  				 <div class="form-group row ">
    					 <label  class="col-sm-2 col-form-label">Apellido</label>
   					  <div class="col-sm-10">
-    				  <input type="text" class="form-control" name="txtApellido" placeholder="Ingrese Apellido.">
+    				  <input type="text" class="form-control" name="txtApellido" placeholder="Ingrese Apellido." <%if(cli != null){%> value = <%=cli.getApellido() %> <% } %>>
    					  </div>
  				 </div>
  				 <div class="form-group row ">
