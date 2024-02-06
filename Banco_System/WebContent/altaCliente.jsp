@@ -113,13 +113,13 @@
  				 <div class="form-group row ">
    					 <label  class="col-sm-2 col-form-label">Nacionalidad</label>
   					  <div class="col-sm-10">
-    				  <input type="text" class="form-control" name="txtNacionalidad" placeholder="Ingrese nacionalidad.">
+    				  <input type="text" class="form-control" name="txtNacionalidad" placeholder="Ingrese nacionalidad." <%if(cli != null){%> value = <%=cli.getNacionalidad() %> <% } %>>
    					  </div>
  				 </div>
  				 <div class="form-group row ">
    					 <label  class="col-sm-2 col-form-label">Fecha de Nacimiento</label>
   					  <div class="col-sm-10">
-    				 <input type="date" name="dtpFechaNacimiento" id= "dtpFechaNacimiento"></input>
+    				 <input type="date" name="dtpFechaNacimiento" id= "dtpFechaNacimiento" <%if(cli != null){%> value = <%=cli.getFechaNac() %> <% } %>></input>
     				
    					  </div>
  				 </div>
@@ -136,7 +136,7 @@
    					 <label  class="col-sm-2 col-form-label">Provincia </label>
   					  <div class="col-sm-10">
   					  
-					<select id="provinciaSelect" name ="provinciaSelect"  onchange='cargarLocalidades(this.value)'>
+					<select id="provinciaSelect" name ="provinciaSelect"  onchange='cargarLocalidades(this.value)' <%if(cli != null){%> value = <%=cli.getIdProvincia() %> <% } %>>>
 					    <option value="0">Elija una provincia: </option>
 					    <% if (request.getAttribute("ListaProvs") != null) {
 					        ArrayList<Provincia> lista = new ArrayList<Provincia>();
@@ -154,7 +154,7 @@
 					
 					   			
 					   						
-   					   <label  class="col-sm-2 col-form-label" id= "lblSelectLocalidad">    Localidad</label>
+   					   <label  class="col-sm-2 col-form-label" id= "lblSelectLocalidad" <%if(cli != null){%> value = <%=cli.getIdLocalidad() %> <% } %>>    Localidad</label>
    					  <% //if (request.getAttribute("localidadXProvincia") != null) { %>
   					  <select id="cboLocalidadSelect" name="cboLocalidadSelect" >
   					  
@@ -177,28 +177,28 @@
  				 
  				 
  				 <div class="form-group row ">
-   					 <label  class="col-sm-2 col-form-label">Direccion</label>
+   					 <label  class="col-sm-2 col-form-label" >Direccion</label>
   					  <div class="col-sm-10">
-    				  <input type="text" class="form-control" name="txtDireccion" placeholder="Ingrese direccion.">
+    				  <input type="text" class="form-control" name="txtDireccion" placeholder="Ingrese direccion." <%if(cli != null){%> value = <%=cli.getDireccion() %> <% } %>>
    					  </div>
  				 </div>
  				 <div class="form-group row ">
    					 <label  class="col-sm-2 col-form-label">Email</label>
   					  <div class="col-sm-10">
-    				  <input type="text" class="form-control" name="txtEmail" placeholder="Ingrese email.">
+    				  <input type="text" class="form-control" name="txtEmail" placeholder="Ingrese email." <%if(cli != null){%> value = <%=cli.getEmail() %> <% } %>>
    					  </div>
  				 </div>
  				 
  				  <div class="form-group row">
    					 <label  class="col-sm-2 col-form-label">Celular</label>
   					  <div class="col-sm-10">
-    				  <input type="text" class="form-control" name="txtCelular" placeholder="Ingrese Celular">
+    				  <input type="text" class="form-control" name="txtCelular" placeholder="Ingrese Celular" <%if(cli != null){%> value = <%=cli.getCelular() %> <% } %>>
    					  </div>
  				 </div>
  				   <div class="form-group row">
    					 <label  class="col-sm-2 col-form-label">Telefono</label>
   					  <div class="col-sm-10">
-    				  <input type="text" class="form-control" name="txtTelefono" placeholder="Ingrese telefono.">
+    				  <input type="text" class="form-control" name="txtTelefono" placeholder="Ingrese telefono." <%if(cli != null){%> value = <%=cli.getTelefonoFijo() %> <% } %>>
    					  </div>
  				 </div>
  				 
