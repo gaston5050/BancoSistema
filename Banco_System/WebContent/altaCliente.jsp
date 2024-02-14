@@ -51,6 +51,7 @@
    						 <div class="col-sm-10">
    						 <% int cant =0;
    						    cant = Cliente.getCantidadClientes() + 1;  %>
+   						    <%if(cli != null){ cant = cli.getNroCliente(); } %>
    						 <%
 
    						System.out.println("*********************");
@@ -103,8 +104,8 @@
   					  
   					  	<fieldset>
   					  		
-  					  		<input type = "radio" name= "rdSexo" value= "1"> Masculino 
-							<input type = "radio" name= "rdSexo" value= "0"> Femenino
+  					  		<input type = "radio" name= "rdSexo" value= "1"<%if(cli != null && cli.getSexo().equals("1")){%> checked <% } %> > Masculino 
+							<input type = "radio" name= "rdSexo" value= "2" <%if(cli != null && cli.getSexo().equals("2")){%> checked <% } %>> Femenino 
   					  		
   					  	</fieldset>
     				
@@ -119,7 +120,7 @@
  				 <div class="form-group row ">
    					 <label  class="col-sm-2 col-form-label">Fecha de Nacimiento</label>
   					  <div class="col-sm-10">
-    				 <input type="date" name="dtpFechaNacimiento" id= "dtpFechaNacimiento" <%if(cli != null){%> value = <%=cli.getFechaNac() %> <% } %>></input>
+    				 <input type="date" name="dtpFechaNacimiento" id= "dtpFechaNacimiento" <% if(cli != null){ %> value = "<%= cli.getFechaNac() %>" <% } %> > 
     				
    					  </div>
  				 </div>
@@ -136,8 +137,20 @@
    					 <label  class="col-sm-2 col-form-label">Provincia </label>
   					  <div class="col-sm-10">
   					  
-					<select id="provinciaSelect" name ="provinciaSelect"  onchange='cargarLocalidades(this.value)' <%if(cli != null){%> value = <%=cli.getIdProvincia() %> <% } %>>>
-					    <option value="0">Elija una provincia: </option>
+					<select id="provinciaSelect" name ="provinciaSelect"  onchange='cargarLocalidades(this.value)' >
+					   
+					   <%if(cli == null) {%> <option value="0">Elija una provincia: </option> <%}
+					   
+					   else {%>
+					   
+					   		<option value="<%=cli.getIdProvincia() %>"><%=cli.get %> </option>
+					   
+					   
+					       <%
+					   }
+					   %>
+					   
+					    
 					    <% if (request.getAttribute("ListaProvs") != null) {
 					        ArrayList<Provincia> lista = new ArrayList<Provincia>();
 					        Object ob = request.getAttribute("ListaProvs");
@@ -171,7 +184,7 @@
    					  
    					  
  				 </div>
- 				 
+ 				 <%=cli. %>
  				 
  				 
  				 
@@ -179,9 +192,10 @@
  				 <div class="form-group row ">
    					 <label  class="col-sm-2 col-form-label" >Direccion</label>
   					  <div class="col-sm-10">
-    				  <input type="text" class="form-control" name="txtDireccion" placeholder="Ingrese direccion." <%if(cli != null){%> value = <%=cli.getDireccion() %> <% } %>>
+    				  <input type="text" class="form-control" name="txtDireccion" placeholder="Ingrese direccion." <%if(cli != null){%> value = "<%=cli.getDireccion() %>" <% } %>>
    					  </div>
  				 </div>
+ 				 
  				 <div class="form-group row ">
    					 <label  class="col-sm-2 col-form-label">Email</label>
   					  <div class="col-sm-10">

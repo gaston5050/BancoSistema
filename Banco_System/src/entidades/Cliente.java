@@ -20,8 +20,9 @@ public class Cliente {
 	private String sexo;
 	private String nacionalidad;
 	private LocalDate fechaNac;
-	private int idLocalidad;
-	private int idProvincia;
+	
+	private Provincia provincia;
+	
 	private String direccion;
 	private String email;
 	private String telefonoFijo;
@@ -63,8 +64,7 @@ public class Cliente {
 		this.sexo = "";
 		this.nacionalidad = "";
 		//this.fechaNac;
-		this.idLocalidad = 1;
-		this.idProvincia = 1;
+		
 		this.direccion = "";
 		this.email = "";
 		this.telefonoFijo="";
@@ -75,7 +75,7 @@ public class Cliente {
 	
 	
 	public Cliente( String dni, String cuil, String nombre, String apellido, String sexo,
-			String nacionalidad, Date fechaNac, int idLocalidad, int idProvincia, String direccion, String email, String telefonoFijo, String celular) {
+			String nacionalidad, Date fechaNac, String direccion, String email, String telefonoFijo, String celular) {
 		super();
 		
 		this.dni = dni;
@@ -85,8 +85,7 @@ public class Cliente {
 		this.sexo = sexo;
 		this.nacionalidad = nacionalidad;
 		//this.fechaNac = fechaNac;
-		this.idLocalidad = idLocalidad;
-		this.idProvincia = idProvincia;
+		
 		this.direccion = direccion;
 		this.email = email;
 		this.telefonoFijo = telefonoFijo;
@@ -181,18 +180,6 @@ public class Cliente {
 		this.nacionalidad = nacionalidad;
 	}
 	
-	public int getIdLocalidad() {
-		return idLocalidad;
-	}
-	public void setIdLocalidad(int idLocalidad) {
-		this.idLocalidad = idLocalidad;
-	}
-	public int getIdProvincia() {
-		return idProvincia;
-	}
-	public void setIdProvincia(int idProvincia) {
-		this.idProvincia = idProvincia;
-	}
 	public String getDireccion() {
 		return direccion;
 	}
@@ -204,6 +191,16 @@ public class Cliente {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+
+	public Provincia getProvincia() {
+		return provincia;
+	}
+
+
+	public void setProvincia(Provincia provincia) {
+		this.provincia = provincia;
 	}
 	
 	
