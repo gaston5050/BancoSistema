@@ -55,6 +55,12 @@ public class ServletCliente extends HttpServlet {
 			Cliente cli = nego.getSingle(request.getParameter("Modificar"));
 			request.setAttribute("A_modificar", cli);
 			
+			// relleno las provincias para modificar
+			INegocioProvincia provincias = new NegocioProvinciaImplementado();
+			 ArrayList<Provincia> provs = provincias.leerTodas();
+			 
+			 request.setAttribute("ListaProvs", provs);	 
+			
 			RequestDispatcher rd = request.getRequestDispatcher("/altaCliente.jsp");
 			rd.forward(request, response);
 			

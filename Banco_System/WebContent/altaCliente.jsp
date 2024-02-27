@@ -50,9 +50,10 @@
    					 
    						 <div class="col-sm-10">
    						 <% int cant =0;
-   						    cant = Cliente.getCantidadClientes() + 1;  %>
-   						    <%if(cli != null){ cant = cli.getNroCliente(); } %>
-   						 <%
+   						    if(cli!=null) {cant = cli.getNroCliente(); }
+   						    else {
+   						    cant = Cliente.getCantidadClientes() + 1;  
+   						    }
 
    						System.out.println("*********************");
    						 System.out.println(cant);
@@ -104,8 +105,8 @@
   					  
   					  	<fieldset>
   					  		
-  					  		<input type = "radio" name= "rdSexo" value= "1"<%if(cli != null && cli.getSexo().equals("1")){%> checked <% } %> > Masculino 
-							<input type = "radio" name= "rdSexo" value= "2" <%if(cli != null && cli.getSexo().equals("2")){%> checked <% } %>> Femenino 
+  					  		<input type = "radio" name= "rdSexo" value= "1" <%if(cli != null && cli.getSexo().equals("1")){%>  checked  <%} %>> Masculino 
+							<input type = "radio" name= "rdSexo" value= "0" <%if(cli != null && cli.getSexo().equals("2")){%>  checked <%} %>> Femenino
   					  		
   					  	</fieldset>
     				
@@ -120,7 +121,7 @@
  				 <div class="form-group row ">
    					 <label  class="col-sm-2 col-form-label">Fecha de Nacimiento</label>
   					  <div class="col-sm-10">
-    				 <input type="date" name="dtpFechaNacimiento" id= "dtpFechaNacimiento" <% if(cli != null){ %> value = "<%= cli.getFechaNac() %>" <% } %> > 
+    				 <input type="date" name="dtpFechaNacimiento" id= "dtpFechaNacimiento" <%if(cli != null){%> value = <%=cli.getFechaNac() %> <% } %>></input>
     				
    					  </div>
  				 </div>
@@ -137,28 +138,16 @@
    					 <label  class="col-sm-2 col-form-label">Provincia </label>
   					  <div class="col-sm-10">
   					  
-					<select id="provinciaSelect" name ="provinciaSelect"  onchange='cargarLocalidades(this.value)' >
-					   
-					   <%if(cli == null) {%> <option value="0">Elija una provincia: </option> <%}
-					   
-					   else {%>
-					   
-					   		<option value="<%=cli.getIdProvincia() %>"><%=cli.get %> </option>
-					   
-					   
-					       <%
-					   }
-					   %>
-					   
-					    
+						<select id="provinciaSelect" name="provinciaSelect" onchange='cargarLocalidades(this.value);' <%if(cli != null){%> onload='cargarLocalidades(<%=cli.getIdProvincia()%>);' <% } %>>
+					    <option value="0">Elija una provincia: </option>
 					    <% if (request.getAttribute("ListaProvs") != null) {
 					        ArrayList<Provincia> lista = new ArrayList<Provincia>();
 					        Object ob = request.getAttribute("ListaProvs");
 					        lista = (ArrayList<Provincia>) ob;
-					
 					        for (Provincia item : lista) {
 					    %>
-					        <option value="<%= item.getId() %>"><%= item.getDescripcion() %></option>
+					    	
+					        <option value="<%= item.getId() %>" <%if(cli!= null && cli.getIdProvincia()== item.getId()) { %> selected <%  System.out.println(cli.getIdProvincia());} %>> <%= item.getDescripcion() %></option>
 					    <%  
 					        }
 					    }
@@ -167,15 +156,15 @@
 					
 					   			
 					   						
-   					   <label  class="col-sm-2 col-form-label" id= "lblSelectLocalidad" <%if(cli != null){%> value = <%=cli.getIdLocalidad() %> <% } %>>    Localidad</label>
-   					  <% //if (request.getAttribute("localidadXProvincia") != null) { %>
-  					  <select id="cboLocalidadSelect" name="cboLocalidadSelect" >
+   					   <label  class="col-sm-2 col-form-label" id= "lblSelectLocalidad">    Localidad</label>
+   					  
+  					  <select id="cboLocalidadSelect" name="cboLocalidadSelect">
   					  
   					  
   					
   					  
   					  </select>
-						<%// } %>
+					
    			
    					  </div>
    					  
@@ -184,7 +173,7 @@
    					  
    					  
  				 </div>
- 				 <%=cli. %>
+ 				 
  				 
  				 
  				 
@@ -195,7 +184,6 @@
     				  <input type="text" class="form-control" name="txtDireccion" placeholder="Ingrese direccion." <%if(cli != null){%> value = "<%=cli.getDireccion() %>" <% } %>>
    					  </div>
  				 </div>
- 				 
  				 <div class="form-group row ">
    					 <label  class="col-sm-2 col-form-label">Email</label>
   					  <div class="col-sm-10">
@@ -245,9 +233,15 @@
 </script>
 
  <script>
+ window.onload = function () {
+	    <% if(cli != null){%>
+	      cargarLocalidades(<%=cli.getIdProvincia()%>);
+	    <% } %>
+	  };
+ 
 function cargarLocalidades(value) {
     var seleccionProvincia = value;
-    alert("Funcion cargarLocalidades ejecutada con valor: " + value);
+  //  alert("Funcion cargarLocalidades ejecutada con valor: " + value);
     $.ajax({
         type: "POST",
         url: "ServletUbicacion",
@@ -255,7 +249,15 @@ function cargarLocalidades(value) {
             Provincia: seleccionProvincia
         },
         success: function (data) {
+        	// Aca cargo el cbo con el lista de localidades
             $("#cboLocalidadSelect").html(data);
+            
+        	
+        	//aca si es modificar preselecciono la localidad que corresponde a la localidad del cliente a modificar
+            <% if(cli != null ) {%>
+            	
+            $("#cboLocalidadSelect").val(<%=cli.getIdLocalidad()%>);
+        <% } %>
         },
         error: function () {
             console.log("Error en la solicitud AJAX");
@@ -263,6 +265,8 @@ function cargarLocalidades(value) {
     });
 }
 </script>
+
+
 
 
 

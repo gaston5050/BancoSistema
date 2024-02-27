@@ -1,0 +1,252 @@
+[33mcommit d80cff6384dd37b92a2ace130c5f16589931741c[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Wed Feb 14 16:40:22 2024 -0300
+
+     si
+
+[33mcommit a20404174cfa57cafaa7ea4bd1f5892a757f64ad[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Tue Feb 6 16:45:30 2024 -0300
+
+    si
+
+[33mcommit e1acf283eb6feb11fb280abccfa7a0c72f382449[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Mon Feb 5 16:44:16 2024 -0300
+
+    si
+
+[33mcommit 6624295c1001b5cee132fd00206fe91e5ef84736[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Fri Feb 2 16:51:49 2024 -0300
+
+    Adelantando Ok en modificar Cliente
+
+[33mcommit 4faaef8f44ccc279545751b0b111a7d1ccfba6f5[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Thu Feb 1 16:48:36 2024 -0300
+
+     Si
+
+[33mcommit 1bbc8c16408e5fd0c1ec07ff1a1a5ed8353137cd[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Wed Jan 31 16:48:58 2024 -0300
+
+     Modificar ya viaja ok
+
+[33mcommit 7d870e8f5fa071a7a15162a0c652dd2bd5010c75[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Mon Jan 29 16:55:37 2024 -0300
+
+    trabajando en las excepciones
+
+[33mcommit 5e655ce0aa2e4e5cb9d43a11ba23fcf8e01f3285[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Wed Jan 24 16:47:22 2024 -0300
+
+     alta cliente ok
+
+[33mcommit 304710aa4bc1ab42f88729319e6da23081d3c2d1[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Tue Jan 23 16:47:55 2024 -0300
+
+    si si
+
+[33mcommit 74916d919b722315a670b21963dc76fe9bfb4daf[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Mon Jan 22 16:41:23 2024 -0300
+
+     si
+
+[33mcommit 885ffa4f9eda1fbfb9bb8faee5bda1edb7b79dec[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Fri Jan 19 16:50:16 2024 -0300
+
+    si
+
+[33mcommit 0cfeaee89c025a3c5b6cddbf02b1e7ba138d7b8a[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Thu Jan 18 16:49:25 2024 -0300
+
+     alta cliente al 95% OK
+
+[33mcommit 02637dd92ae999f8fbfc059c624176cb5178722b[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Wed Jan 17 16:32:14 2024 -0300
+
+    si
+
+[33mcommit 32d2594b194963ceb65cf3437d414f8eac487514[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Tue Jan 16 16:55:15 2024 -0300
+
+    avanzando
+
+[33mcommit 6da9c66df68d0fbeff56a1d75fc6e07c7343d4a6[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Fri Jan 12 16:54:08 2024 -0300
+
+    V14
+
+[33mcommit a84e4e93a56f60ffb1acf5e80889a72de532a05a[m
+Merge: 12cf7d2 3eb6abd
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Thu Jan 11 10:15:40 2024 -0300
+
+    segundo select funcionando OK
+
+[33mcommit 12cf7d25ff62662998b4dac1a1c95e3b42ee7cb1[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Thu Jan 11 09:53:15 2024 -0300
+
+    Segundo desplegable funcionando OK
+
+[33mcommit 3eb6abdd69b1a90fabb100cbaee89fef67f618cd[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Tue Jan 9 16:54:17 2024 -0300
+
+     ?
+
+[33mcommit ced56ba6dae8b00e3f76d0cad84ff3fa73b7d9f7[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Mon Jan 8 16:55:13 2024 -0300
+
+    segundo desplegable casi ok
+
+[33mcommit f461f387cf21963f972034634b4d4f16b19b41c2[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Fri Jan 5 16:44:45 2024 -0300
+
+     carga loc dinamica ok
+
+[33mcommit 74b60a676abed98e354cc10b8daccf898a640f16[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Thu Jan 4 16:50:22 2024 -0300
+
+     avanzando
+
+[33mcommit f71452fbf51c9755ddc00f9cdb99fb1cc633f2d7[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Wed Jan 3 16:51:24 2024 -0300
+
+     si
+
+[33mcommit 4af4b5f733f995e580d31211549f610afb285219[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Tue Jan 2 16:51:24 2024 -0300
+
+    listado dinamico de localidades es proceso
+
+[33mcommit 89033b31193e26cb8ee38ee62e6d85f3221fda78[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Thu Dec 28 16:54:10 2023 -0300
+
+     carga localidades dinamica ok
+
+[33mcommit 16c42f7c57de4e7520bbb5c7ab3abb9b544751b4[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Tue Dec 26 16:54:35 2023 -0300
+
+    listado localidades es funcion de provincia - Avanzado
+
+[33mcommit 19416e84a40bea4ccd13cbe1b6f3d546b74a4d65[m
+Author: Gastón <80988908+gaston5050@users.noreply.github.com>
+Date:   Mon Dec 25 23:35:02 2023 -0300
+
+    s
+
+[33mcommit 5372cbe714eb75a7cab95dd39ccc789f2cfd48a0[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Fri Dec 22 16:49:49 2023 -0300
+
+     listado de localidades casi funcionando
+
+[33mcommit 556d70e9b0362d58612f973e1b9ed70d93452d5e[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Thu Dec 21 16:42:37 2023 -0300
+
+    Avanzando
+
+[33mcommit 098bbf59a21c9734cb8b033986339b60e8077c60[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Wed Dec 20 16:50:15 2023 -0300
+
+    Sigo avanzando en la carga de provincias en alta cliente
+
+[33mcommit 8be6cfd16a68caf13f01cd12e5853cbef946eb06[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Fri Dec 15 16:50:06 2023 -0300
+
+    avanzando en ABML de clientes
+
+[33mcommit d542d17f0acbb6a7751b4eb59d33ec8044dd2fe5[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Thu Dec 14 16:36:46 2023 -0300
+
+    trabajando en alta cliente
+
+[33mcommit 3a0b161b9b6f6063b4461165a28432f7862c5d63[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Wed Dec 13 16:34:59 2023 -0300
+
+    listado clientes OK
+
+[33mcommit 1dfe262a4ec811102c6455f2caf1f23e0ac4e90a[m
+Author: Gastón <80988908+gaston5050@users.noreply.github.com>
+Date:   Tue Dec 12 21:49:55 2023 -0300
+
+    dfd
+
+[33mcommit fc9c82ee591c0a4a646b7eb583aa4050b653ca91[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Tue Dec 12 16:56:12 2023 -0300
+
+     abml clientes avanzando ok
+
+[33mcommit 0314fcd611c26bf2aec382cec7f2a1273a0c8ae4[m
+Author: Gastón <80988908+gaston5050@users.noreply.github.com>
+Date:   Tue Dec 12 00:11:49 2023 -0300
+
+    s
+
+[33mcommit 7d085a90c0ddf9381bced6fea9dad66223c82dce[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Mon Dec 11 16:48:37 2023 -0300
+
+    insert usuario OK
+
+[33mcommit 7fbdaba2923c60319a3e08f89988bf84cc3719bb[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Mon Dec 11 08:24:15 2023 -0300
+
+    listado usuarios OK
+
+[33mcommit 5bfc4220fb9afea0b5f90e341103d742338b2795[m
+Author: Gastón <80988908+gaston5050@users.noreply.github.com>
+Date:   Sun Dec 10 21:18:48 2023 -0300
+
+    6
+
+[33mcommit d3c33de197c19823b785e31695d8c14225b4c501[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Thu Dec 7 12:49:45 2023 -0300
+
+     tables con  bootstrap OK
+
+[33mcommit bcf157ee5ffaf329378af0ffad16ce71e5bbc53d[m[33m ([m[1;32mdoS[m[33m)[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Wed Dec 6 12:53:51 2023 -0300
+
+    Conexion con BD OK!
+
+[33mcommit 3df22aa1a52087598ca892c6f1bde75fd32b8568[m
+Author: gaston5050 <80988908+gaston5050@users.noreply.github.com>
+Date:   Wed Dec 6 11:25:43 2023 -0300
+
+    Capa conexion en desarrollo
+
+[33mcommit 998cdc83086a05ac56b1b733f4470d499370e916[m
+Author: Gastón <80988908+gaston5050@users.noreply.github.com>
+Date:   Wed Dec 6 09:31:30 2023 -0300
+
+    Initial commit

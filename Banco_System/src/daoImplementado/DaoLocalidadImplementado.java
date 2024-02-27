@@ -123,7 +123,7 @@ public class DaoLocalidadImplementado implements IDaoLocalidad{
 		
 		ArrayList<Localidad> locas = new ArrayList<Localidad>();
 		
-		PreparedStatement query;  
+		PreparedStatement query;
 		ResultSet resultado;
 		Connection conexion = Conexion.getConnection().getSQLConexion();
 		

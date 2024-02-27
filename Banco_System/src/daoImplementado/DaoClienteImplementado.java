@@ -160,7 +160,7 @@ public class DaoClienteImplementado implements IDaoCliente {
 					auxiliar.setFechaNac(resultSet.getDate("fechanacimiento").toLocalDate());
 					auxiliar.setIdLocalidad(resultSet.getInt("idlocalidad"));
 					auxiliar.setIdProvincia(resultSet.getInt("idProvincia"));
-					auxiliar.setDireccion(resultSet.getString("direccion").toString());
+					auxiliar.setDireccion(resultSet.getString("direccion"));
 					auxiliar.setEmail(resultSet.getString("email"));
 					auxiliar.setCelular(resultSet.getString("celular"));
 					auxiliar.setTelefonoFijo(resultSet.getString("telefonoFijo"));

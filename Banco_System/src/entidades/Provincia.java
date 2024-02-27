@@ -1,8 +1,5 @@
 package entidades;
 
-import java.util.ArrayList;
-
-
 public class Provincia {
 	
 	@Override
@@ -12,8 +9,6 @@ public class Provincia {
 	}
 	private int id;
 	private String descripcion;
-	private ArrayList<Localidad> localidades;
-	
 	
 public Provincia() {
 		
@@ -37,14 +32,6 @@ public Provincia() {
 	}
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
-	}
-
-	public ArrayList<Localidad> getLocalidades() {
-		return localidades;
-	}
-
-	public void setLocalidades(ArrayList<Localidad> localidades) {
-		this.localidades = localidades;
 	}
 	
 	

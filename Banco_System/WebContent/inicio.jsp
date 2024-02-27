@@ -21,8 +21,7 @@
 
  
 
-<title>Inicio</title> .
-
+<title>Inicio</title>
 </head>
 <body>
 
