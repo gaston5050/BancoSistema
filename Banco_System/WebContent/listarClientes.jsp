@@ -20,6 +20,31 @@
 	  	<div class="container ">
 		<div class="d-flex justify-content-center w-auto small text-center">
 				
+				
+				
+				<%if(  request.getAttribute("modificado_Ok")!= null) { %>
+					<div class="modal" tabindex="-1">
+					  <div class="modal-dialog">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h5 class="modal-title">Modal title</h5>
+					        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					      </div>
+					      <div class="modal-body">
+					        <p>Modal body text goes here.</p>
+					      </div>
+					      <div class="modal-footer">
+					        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					        <button type="button" class="btn btn-primary">Save changes</button>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+				<% 	
+					 System.out.println(request.getAttribute("modificado_Ok"));
+				}
+				
+				%>
 											
 							
 					<%System.out.println("llego al listado"); %>
@@ -57,7 +82,7 @@
 										
 										<td><input type= "submit" name = "btnBaja" value= "Baja" class="btn btn-danger" /></td>
 										
-										<td><a href="ServletCliente?Modificar=<%=item.getDni() %>" class="btn btn-warning" >Modificar </a></td>
+										<td><a href="ServletCliente?Modificar=<%=item.getDni()%>" class="btn btn-warning" >Modificar </a></td>
 										
 										<td><input type= "submit" name = "btnDatos" value= "Datos" class="btn btn-info" /></td>
 										<td><input type= "submit" name = "btnMovimientos" value= "Movimientos" class="btn btn-primary" /></td>

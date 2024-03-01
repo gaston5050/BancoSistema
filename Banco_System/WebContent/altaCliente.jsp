@@ -38,6 +38,7 @@
   				if(request.getAttribute("A_modificar")!= null){
   					
   					cli = (Cliente)request.getAttribute("A_modificar");
+  					System.out.println("Aca lo voy a modificar " + cli.getNroCliente());
   					
   				}
   				
@@ -208,7 +209,8 @@
  				 
    				<div class="d-grid gap-2 d-md-flex justify-content-md-end">
   					
-  					<input type="submit" class="btn btn-primary" value = "Aceptar" name ="btnAceptar">
+  					<input type="submit" class="btn btn-primary" <%if(request.getAttribute("A_modificar")== null) {%> value = "Aceptar" name ="btnAceptar"<%}  else {%>value = "Modificar" name ="btnModificar"   <%} %>>
+  					
 				</div>
   			
    					

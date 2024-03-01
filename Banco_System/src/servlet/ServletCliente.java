@@ -21,12 +21,17 @@ import negocio.INegocioCliente;
 import negocio.INegocioProvincia;
 import negocioImplementado.NegocioClienteImplementado;
 import negocioImplementado.NegocioProvinciaImplementado;
+//import negocioImplementado.request;
 
 /**
  * Servlet implementation class ServletCliente
  */
 @WebServlet("/ServletCliente")
 public class ServletCliente extends HttpServlet {
+	
+	
+	RequestDispatcher rd; 
+	
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -61,7 +66,7 @@ public class ServletCliente extends HttpServlet {
 			 
 			 request.setAttribute("ListaProvs", provs);	 
 			
-			RequestDispatcher rd = request.getRequestDispatcher("/altaCliente.jsp");
+			rd = request.getRequestDispatcher("/altaCliente.jsp");
 			rd.forward(request, response);
 			
 			
@@ -99,7 +104,7 @@ if(request.getParameter("Param")!= null) {
 			 System.out.println(provs.size());
 			 System.out.println("Me voy del alta a alta");
 			
-			RequestDispatcher rd = request.getRequestDispatcher("/altaCliente.jsp");
+			rd = request.getRequestDispatcher("/altaCliente.jsp");
 			rd.forward(request, response);
 		}
 			
@@ -120,16 +125,61 @@ if(request.getParameter("Param")!= null) {
 		// TODO Auto-generated method stub
 		
 
+		Cliente reg = new Cliente();
+		
+		
+		if(request.getParameter("btnModificar")!= null) {
+			
+			System.out.println(request.getParameter("canti"));
+			
+			reg.setNroCliente(Integer.valueOf(request.getParameter("canti")));
+			//reg.setDni(request.getParameter("txtDni"));
+			reg.setCuil(request.getParameter("txtCuil"));
+			reg.setNombre(request.getParameter("txtNombre"));
+			reg.setApellido(request.getParameter("txtApellido"));
+			
+			reg.setSexo(request.getParameter("rdSexo"));
+			reg.setNacionalidad(request.getParameter("txtNacionalidad"));
+		
+			 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+			 LocalDate dt = LocalDate.parse(request.getParameter("dtpFechaNacimiento"), dtf);
 
+			
+			reg.setFechaNac(dt);
 		
-		
+			reg.setIdProvincia(Integer.valueOf(request.getParameter("provinciaSelect")));			
+			reg.setIdLocalidad(Integer.valueOf(request.getParameter("cboLocalidadSelect")));
+			reg.setDireccion(request.getParameter("txtDireccion"));
+			reg.setEmail(request.getParameter("txtEmail"));
+			reg.setCelular(request.getParameter("txtCelular"));
+			reg.setTelefonoFijo(request.getParameter("txtTelefono"));
+			reg.setEstado(Boolean.valueOf(request.getParameter("esAdmin")));
+			
+			
+			System.out.println("-----------------------------");
+			System.out.println(reg.toString());
+			System.out.println("-----------------------------");
+			INegocioCliente neg = new NegocioClienteImplementado();
+			
+			if(neg.modificarCliente(reg)) { System.out.println("Si se pudo");
+			request.setAttribute("modificado_Ok", true);
+			
+			
+			}
+			else System.out.println("No se pudio");
+			
+			rd = request.getRequestDispatcher("/listarClientes.jsp");
+			rd.forward(request, response);
+			
+			
+				
+		}
 		
 		
 		
 		
 		if(request.getParameter("btnAceptar")!= null) {
 			
-			Cliente reg = new Cliente();
 			
 			System.out.println(request.getParameter("canti"));
 			reg.setNroCliente(Integer.valueOf(request.getParameter("canti")));
@@ -182,7 +232,7 @@ if(request.getParameter("Param")!= null) {
 			
 			
 			
-			RequestDispatcher rd = request.getRequestDispatcher("/altaCliente.jsp");
+			rd = request.getRequestDispatcher("/altaCliente.jsp");
 			rd.forward(request, response);
 		
 		

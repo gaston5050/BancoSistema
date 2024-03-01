@@ -63,6 +63,32 @@ public class NegocioClienteImplementado implements INegocioCliente {
 		
 		return cli;
 	}
+
+
+
+	@Override
+	public boolean modificarCliente(Cliente cliente) {
+		boolean estado = false;
+		
+		IDaoCliente aux = new DaoClienteImplementado();
+		 System.out.println("ACA estoy en el negocio implementado: " + cliente.toString() + " " + cliente.getNroCliente());
+		estado = aux.modificarCliente(cliente);
+	
+	
+		return estado;
+		
+	}
+
+
+
+	@Override
+	public Cliente getSingleXNroCliente(String NroCliente) {
+		
+		IDaoCliente dao = new DaoClienteImplementado ();
+		Cliente cli = dao.getSingle(NroCliente);
+		
+		return cli;
+	}
 	
 	
 }
