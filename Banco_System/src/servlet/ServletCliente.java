@@ -163,13 +163,25 @@ if(request.getParameter("Param")!= null) {
 			
 			if(neg.modificarCliente(reg)) { System.out.println("Si se pudo");
 			request.setAttribute("modificado_Ok", true);
+			//  Aca vuelvo a cargar el listado de clientes despues de una modificacion exitosa
+		
+			ArrayList<Cliente> listado = new ArrayList<Cliente>();
+			
+			
+			listado = neg.leerTodos();
+			
+			request.setAttribute("listadoClientes", listado);
+			
+			
+			
 			
 			
 			}
-			else System.out.println("No se pudio");
+			else  System.out.println("No se pudio");
 			
-			rd = request.getRequestDispatcher("/listarClientes.jsp");
-			rd.forward(request, response);
+		        rd = request.getRequestDispatcher("/listarClientes.jsp");
+			
+				rd.forward(request, response);
 			
 			
 				
